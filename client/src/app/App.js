@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GetRandomMovie from '../container/GetRandomMovie';
+import Layout from '../components/Layout';
 
 
 class App extends Component {
@@ -24,8 +24,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      <GetRandomMovie />
+      <div>
+      <Layout />
       </div>
     );
   }
