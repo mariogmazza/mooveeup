@@ -1,131 +1,166 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, Dropdown } from "semantic-ui-react";
+import { Button, Dropdown, Container } from "semantic-ui-react";
 import MovieCard from "../components/MovieCard";
+import { loadMovie } from "../redux/actions/getMovieAction";
+import { connect } from "react-redux";
 
 const decadeOptions = [
   {
-    text:"2000+",
-    value:"2000"
+    text: "2000+",
+    value: "2000"
   },
   {
     text: "90's",
     value: "90"
   },
   {
-    text:"80's",
-    value:"80"
+    text: "80's",
+    value: "80"
   },
   {
-    text:"70's",
-    value:"70"
+    text: "70's",
+    value: "70"
   }
-];  
+];
 
+const easyOnMeMode = decade => {
+  console.log("this is easyMode " + decade);
+  let page = 1;
+  let pageLimit = 10;
+  let movieIndex = 0;
+  let maxMovieIndex = 19;
+  if (decade === "1970") {
+    pageLimit = 8;
+  }
+  page = Math.floor(Math.random() * pageLimit + 1);
+  if (page === 8 && decade === "1970") {
+    maxMovieIndex = 10;
+  }
+  movieIndex = Math.floor(Math.random() * maxMovieIndex + 1);
+  console.log("pages: " + page + " movieIndex: " + movieIndex);
+  return { page, movieIndex };
+};
 
+// const hardCoreFanMode = decade => {
+//   console.log("this is Hardcore mode " + decade);
+//   let pages = 1;
+//   let movieIndex = 0;
+//   // if(decade === "2000"){
+//   pages = Math.floor(Math.random() * 3 + 1);
+//   movieIndex = Math.floor(Math.random() * 20 + 0);
+//   console.log("pages: " + pages + " movieIndex: " + movieIndex);
+//   return { pages, movieIndex };
+//   // }
+// };
 
-const easyOnMeMode=(decade)=>{
-  console.log("this is easyMode "+decade);
-  let pages=1;
-  let movieIndex=0;
-  // if(decade === "2000"){
-     pages = Math.floor((Math.random() * 3) + 1);
-     movieIndex = Math.floor((Math.random() * 20) + 0);
-     console.log("pages: "+pages+" movieIndex: "+movieIndex)
-     return {pages, movieIndex}
-  // }
+// start:"1990-01-01", end:"1999-12-31",finalPage:16}
+// {start:"1980-01-01", end:"1989-12-31",finalPage:18}
+// {start:"1970-01-01", end:"1979-12-31",finalPage:8}
+// {start:"2000-01-01", end:`${presentDate}`, finalPage:75}
 
-}
+const actions = {
+  loadMovie
+};
 
-
+const mapState = state => ({
+  data: state.moviePicked.data
+});
 
 class GetRandomMovie extends Component {
-
   state = {
     data: "",
-    decade:{
-      start:"1970-01-01",
-      end:"1999-12-31",
-    },
-    pickedPage:40,
-
+    decade: {
+      start: "1970-01-01",
+      end: "1999-12-31"
+    }
+   // , pickedPage: 10
   };
-
-  
 
   handleOnClick = () => {
-    const {decade} = this.state
-  const {pages, movieIndex} =  easyOnMeMode(decade.start.substring(0,4))
-    console.log(movieIndex)
-    this.setState({pickedPage:movieIndex})
-    axios
-      .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=b2ce9d552430f16ed8460e3dce54ba4e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="+pages+"&primary_release_date.gte=" +
-          decade.start +
-          "&primary_release_date.lte=" +
-          decade.end +
-          "&vote_average.gte=6&with_genres=878"
-      )
-      .then(res => {
-        console.log(res.data.results);
-        this.setState({ data: res.data.results });
-      });
+    const { decade } = this.state;
+    const { page, movieIndex } = easyOnMeMode(decade.start.substring(0, 4));
+  //  this.setState({ pickedPage: movieIndex });
+
+    this.props.loadMovie(page, decade, movieIndex);
   };
 
-
-  selectedDecade(val){
+  selectedDecade(val) {
     const nowDate = new Date();
     let month = nowDate.getMonth();
     let day = nowDate.getDay();
     const year = nowDate.getFullYear();
 
-    if(month<9){
-      month = "0"+month;
+    if (month < 9) {
+      month = "0" + month;
     }
 
-    if(day<9){
-      day = "0"+day;
+    if (day < 9) {
+      day = "0" + day;
     }
 
-    const presentDate = year+"-"+month+"-"+day
-    console.log(presentDate);
+    const presentDate = year + "-" + month + "-" + day;
 
-    if(val==="90"){
-      this.setState({decade:{start:"1990-01-01", end:"1999-12-31"}})
-    }else if(val==="80"){
-      this.setState({decade:{start:"1980-01-01", end:"1989-12-31"}})      
-    }else if(val==="70"){
-      this.setState({decade:{start:"1970-01-01", end:"1979-12-31"}})
-    }else if(val==="2000"){
-      this.setState({decade:{start:"2000-01-01", end:`${presentDate}`}})
+    if (val === "90") {
+      this.setState({ decade: { start: "1990-01-01", end: "1999-12-31" } });
+    } else if (val === "80") {
+      this.setState({ decade: { start: "1980-01-01", end: "1989-12-31" } });
+    } else if (val === "70") {
+      this.setState({ decade: { start: "1970-01-01", end: "1979-12-31" } });
+    } else if (val === "2000") {
+      this.setState({ decade: { start: "2000-01-01", end: `${presentDate}` } });
     }
-
   }
 
-  // start:"1990-01-01", end:"1999-12-31",movieInx:16}
-  // {start:"1980-01-01", end:"1989-12-31",finalPage:18}
-  // {start:"1970-01-01", end:"1979-12-31",finalPage:8}
-  // {start:"2000-01-01", end:`${presentDate}`, finalPage:75}
-
   render() {
-    const { data, pickedPage } = this.state;
+    const { data } = this.props;
+    // const { pickedPage, backGroundImg } = this.state;
+
+
     let thecard;
+    let backDropImg;
 
     if (data) {
+    {{console.log(data.backdrop_path  )}}
+
+      // const containerStyle= data[pickedPage].backdrop_image
+
+      let movieImg = "http://image.tmdb.org/t/p/original/" + data.poster_path;
+
+      //   "http://image.tmdb.org/t/p/original/" + data[pickedPage].poster_path;
+      // thecard = (
+      //   <MovieCard
+      //     imgPath={movieImg}
+      //     title={data[pickedPage].title}
+      //     relDate={data[pickedPage].release_date}
+      //     overview={data[pickedPage].overview}
+      //   />
+      // );
+
+
+
+       backDropImg= {backgroundImage: `url(http://image.tmdb.org/t/p/original/${data.backdrop_path})`,
+       backgroundRepeat: "no-repeat",
+       backgroundSize: "cover"
+      }
+
       thecard = (
         <MovieCard
-          imgPath={"http://image.tmdb.org/t/p/w500/" + data[pickedPage].poster_path}
-          title={data[pickedPage].title}
-          relDate={data[pickedPage].release_date}
-          overview={data[pickedPage].overview}
+          imgPath={movieImg}
+          title={data.title}
+          relDate={data.release_date}
+          overview={data.overview}
         />
       );
+
+
     } else {
-      thecard = "nothing";
+      thecard = "";
+      backDropImg={}
     }
 
     return (
-      <div>
+      <Container style={backDropImg}>
         <Dropdown
           placeholder="Select a Decade"
           fluid
@@ -133,17 +168,17 @@ class GetRandomMovie extends Component {
           options={decadeOptions}
           onChange={(e, { value }) => this.selectedDecade(value)}
         />
-       
+
         {thecard}
 
-         <Button
+        <Button
           primary
           onClick={this.handleOnClick}
           content={"Get Random Movie"}
         />
-      </div>
+      </Container>
     );
   }
 }
 
-export default GetRandomMovie;
+export default connect(mapState, actions)(GetRandomMovie);

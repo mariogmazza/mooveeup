@@ -4,6 +4,10 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
+require('dotenv').config()
+
+
+
 // API calls
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });

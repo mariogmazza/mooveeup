@@ -1,0 +1,2 @@
+export const GET_RANDOM_MOVIE = "GET_RANDOM_MOVIE";
+// export const GET_RANDOM_MOVIE = "GET_RANDOM_MOVIE";

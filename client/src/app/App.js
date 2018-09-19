@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Layout from '../components/Layout';
+import GetRandomMovie from '../container/GetRandomMovie';
+// import Layout from '../components/Layout';
 
 
 class App extends Component {
   state = {
     response: ''
-  };
+  };  
 
   componentDidMount() {
     this.callApi()
@@ -24,9 +25,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      <Layout />
-      </div>
+      <React.Fragment>
+      <GetRandomMovie />
+      </React.Fragment>
     );
   }
 }
