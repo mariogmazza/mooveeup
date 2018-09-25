@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 284 188">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #332c2c;
+        font-size: 70px;
+        font-family: SegoeUI-Bold, Segoe UI;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="0.961" cy="0.5" r="47.919" gradientTransform="translate(0.994 0.62) rotate(180) scale(0.035 0.24)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d9eeea" stop-opacity="0.451"/>
+      <stop offset="0.357" stop-color="#00fcd3" stop-opacity="0.188"/>
+      <stop offset="1" stop-color="#46bca8"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_11" data-name="Group 11" transform="translate(-10 -43)">
+    <g id="Group_8" data-name="Group 8">
+      <text id="MOVIE_PICKER" data-name="MOVIE
+PICKER" class="cls-1" transform="translate(10 119)"><tspan x="0" y="0">MOVIE</tspan><tspan x="0" y="94">PICKER</tspan></text>
+    </g>
+    <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-2" width="284" height="10" rx="5" transform="translate(10 212)"/>
+    <g id="Group_9" data-name="Group 9">
+      <text id="MOVIE_PICKER-2" data-name="MOVIE
+PICKER" class="cls-1" transform="translate(10 119)"><tspan x="0" y="0">MOVIE</tspan><tspan x="0" y="94">PICKER</tspan></text>
+    </g>
+  </g>
+</svg>

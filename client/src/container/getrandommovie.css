@@ -1,0 +1,55 @@
+.container{
+    display: grid;
+    justify-content: center;
+}
+
+.appContainer{
+    width: 375px;
+    height: 667px;
+    background-color:#EFF2F2;
+    border: none;
+}
+
+.appNameLogo{
+    padding-top: 43px;
+    padding-left: 10px;
+    width: 284px;
+    height: 188px;
+}
+
+.appSubHeading{
+    font-family: Segoe UI;
+    font-size: 26px;
+    font-weight:500;
+    margin: 0px;
+    color: #BCBCBC;
+    padding-top: 43px;
+    padding-left: 14px;
+}
+
+.appBTN_GENRE{
+    font-family: Segoe UI;
+    font-size: 21px;
+    font-weight: bold;
+    width: 178px;
+    height: 55px;
+    background-color: rgb(255, 255, 255) ;
+    border: none;
+    border-radius: 26px;
+    margin-left: 98px;
+    margin-top: 38px;
+}
+
+.appBTN_SELECT{
+    font-family: Segoe UI;
+    font-size: 21px;
+    font-weight: bold;
+    width: 178px;
+    height: 55px;
+    background-color: rgb(255, 255, 255) ;
+    border: none;
+    border-radius: 26px;
+    margin-left: 98px;
+    margin-top: 174px;
+
+}

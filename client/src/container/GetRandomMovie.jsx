@@ -4,21 +4,23 @@ import { Button, Dropdown, Container } from "semantic-ui-react";
 import MovieCard from "../components/MovieCard";
 import { loadMovie } from "../redux/actions/getMovieAction";
 import { connect } from "react-redux";
+import LOGO from '../assets/img/LogoMoviePicker.svg';
+import  './getrandommovie.css'
 
 const decadeOptions = [
-  {
+  { key:1,
     text: "2000+",
     value: "2000"
   },
-  {
+  { key:2,
     text: "90's",
     value: "90"
   },
-  {
+  { key:3,
     text: "80's",
     value: "80"
   },
-  {
+  { key:4,
     text: "70's",
     value: "70"
   }
@@ -83,6 +85,7 @@ class GetRandomMovie extends Component {
   //  this.setState({ pickedPage: movieIndex });
 
     this.props.loadMovie(page, decade, movieIndex);
+
   };
 
   selectedDecade(val) {
@@ -116,30 +119,14 @@ class GetRandomMovie extends Component {
     const { data } = this.props;
     // const { pickedPage, backGroundImg } = this.state;
 
-
     let thecard;
     let backDropImg;
 
     if (data) {
-    {{console.log(data.backdrop_path  )}}
-
-      // const containerStyle= data[pickedPage].backdrop_image
-
       let movieImg = "http://image.tmdb.org/t/p/original/" + data.poster_path;
 
-      //   "http://image.tmdb.org/t/p/original/" + data[pickedPage].poster_path;
-      // thecard = (
-      //   <MovieCard
-      //     imgPath={movieImg}
-      //     title={data[pickedPage].title}
-      //     relDate={data[pickedPage].release_date}
-      //     overview={data[pickedPage].overview}
-      //   />
-      // );
-
-
-
-       backDropImg= {backgroundImage: `url(http://image.tmdb.org/t/p/original/${data.backdrop_path})`,
+       backDropImg= {
+       backgroundImage: `url(http://image.tmdb.org/t/p/original/${data.backdrop_path})`,
        backgroundRepeat: "no-repeat",
        backgroundSize: "cover"
       }
@@ -160,23 +147,34 @@ class GetRandomMovie extends Component {
     }
 
     return (
-      <Container style={backDropImg}>
-        <Dropdown
-          placeholder="Select a Decade"
-          fluid
-          selection
-          options={decadeOptions}
-          onChange={(e, { value }) => this.selectedDecade(value)}
-        />
+      // <Container style={backDropImg}>
+      //   <Dropdown
+      //     placeholder="Select a Decade"
+      //     fluid
+      //     selection
+      //     options={decadeOptions}
+      //     onChange={(e, { value }) => this.selectedDecade(value)}
+      //   />
 
-        {thecard}
+      //   {thecard}
 
-        <Button
-          primary
-          onClick={this.handleOnClick}
-          content={"Get Random Movie"}
-        />
-      </Container>
+      //   <Button
+      //     primary
+      //     onClick={this.handleOnClick}
+      //     content={"Get Random Movie"}
+      //   />
+      // </Container>
+
+     <div className="container">
+      <div className='appContainer'>
+          <img className='appNameLogo' src={LOGO} alt="Movie picker logo"/>
+          <h3 className='appSubHeading'>Select by:</h3>
+          <button className='appBTN_GENRE' onClick={this.handleOnClick} >GENRE</button>
+          <button className='appBTN_SELECT'>SELECT</button>
+          
+      </div>
+    </div>
+
     );
   }
 }
