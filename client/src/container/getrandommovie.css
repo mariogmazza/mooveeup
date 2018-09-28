@@ -27,29 +27,3 @@
     padding-left: 14px;
 }
 
-.appBTN_GENRE{
-    font-family: Segoe UI;
-    font-size: 21px;
-    font-weight: bold;
-    width: 178px;
-    height: 55px;
-    background-color: rgb(255, 255, 255) ;
-    border: none;
-    border-radius: 26px;
-    margin-left: 98px;
-    margin-top: 38px;
-}
-
-.appBTN_SELECT{
-    font-family: Segoe UI;
-    font-size: 21px;
-    font-weight: bold;
-    width: 178px;
-    height: 55px;
-    background-color: rgb(255, 255, 255) ;
-    border: none;
-    border-radius: 26px;
-    margin-left: 98px;
-    margin-top: 174px;
-
-}

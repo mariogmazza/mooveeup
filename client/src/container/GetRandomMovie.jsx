@@ -6,6 +6,9 @@ import { loadMovie } from "../redux/actions/getMovieAction";
 import { connect } from "react-redux";
 import LOGO from '../assets/img/LogoMoviePicker.svg';
 import  './getrandommovie.css'
+import GenreBTN from "../components/GenreBTN/GenreBTN";
+import GenreList from "../components/GenreList/GenreList";
+import SelectBTN from "../components/SelectBTN/SelectBTN";
 
 const decadeOptions = [
   { key:1,
@@ -169,10 +172,11 @@ class GetRandomMovie extends Component {
       <div className='appContainer'>
           <img className='appNameLogo' src={LOGO} alt="Movie picker logo"/>
           <h3 className='appSubHeading'>Select by:</h3>
-          <button className='appBTN_GENRE' onClick={this.handleOnClick} >GENRE</button>
-          <button className='appBTN_SELECT'>SELECT</button>
-          
+          <GenreBTN  />
+          <GenreList />
+          <SelectBTN />
       </div>
+
     </div>
 
     );
