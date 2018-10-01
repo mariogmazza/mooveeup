@@ -2,11 +2,10 @@
   margin: 0;
 }
 
-#container1 {
+/* #container1 {
   text-align:center;
   height: 240px;
   width: 100%;
-  /* border: 1px solid green; */
   overflow: hidden;
 
 }
@@ -14,18 +13,17 @@
 #container2 {
   width: 100%;
   height: 90%;
-  /* border: 1px solid blue; */
   overflow: auto;
   padding-right: 15px;
   line-height: 2.0;
-}
+} */
 
 body ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
 
-.genre-style{
+/* .genre-style{
   font-size: 1.2em;
   color: #b2b2b2
 }
@@ -33,4 +31,5 @@ body ::-webkit-scrollbar {
 .genre-style:hover{
   font-size: 1.3em;
   color:#444444
-}
+} */
+

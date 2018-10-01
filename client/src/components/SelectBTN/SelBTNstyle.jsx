@@ -7,7 +7,7 @@ import styled from 'styled-components';
     font-weight: bold;
     width: 178px;
     height: 55px;
-    background-color: rgb(255, 255, 255) ;
+    background-color: ${props=> props.primary ?  '#00FCD3' : 'rgb(255, 255, 255)'} ;
     border: none;
     border-radius: 26px;
     margin-left: 98px;

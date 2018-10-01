@@ -1,29 +1,33 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Button, Dropdown, Container } from "semantic-ui-react";
+// import axios from "axios";
+// import { Button, Dropdown, Container } from "semantic-ui-react";
 import MovieCard from "../components/MovieCard";
 import { loadMovie } from "../redux/actions/getMovieAction";
 import { connect } from "react-redux";
-import LOGO from '../assets/img/LogoMoviePicker.svg';
-import  './getrandommovie.css'
+import LOGO from "../assets/img/LogoMoviePicker.svg";
+import "./getrandommovie.css";
 import GenreBTN from "../components/GenreBTN/GenreBTN";
-import GenreList from "../components/GenreList/GenreList";
+// import GenreList from "../components/GenreList/GenreList";
 import SelectBTN from "../components/SelectBTN/SelectBTN";
 
 const decadeOptions = [
-  { key:1,
+  {
+    key: 1,
     text: "2000+",
     value: "2000"
   },
-  { key:2,
+  {
+    key: 2,
     text: "90's",
     value: "90"
   },
-  { key:3,
+  {
+    key: 3,
     text: "80's",
     value: "80"
   },
-  { key:4,
+  {
+    key: 4,
     text: "70's",
     value: "70"
   }
@@ -69,8 +73,13 @@ const actions = {
 };
 
 const mapState = state => ({
-  data: state.moviePicked.data
+  data: state.moviePicked.data,
+  selectData: state.genrePicked.data
 });
+
+
+
+
 
 class GetRandomMovie extends Component {
   state = {
@@ -79,16 +88,20 @@ class GetRandomMovie extends Component {
       start: "1970-01-01",
       end: "1999-12-31"
     }
-   // , pickedPage: 10
   };
 
-  handleOnClick = () => {
+  handleGetTheMovie = () => {
+      console.log("IM inside handleclick")
     const { decade } = this.state;
     const { page, movieIndex } = easyOnMeMode(decade.start.substring(0, 4));
-  //  this.setState({ pickedPage: movieIndex });
+    //  this.setState({ pickedPage: movieIndex });
 
-    this.props.loadMovie(page, decade, movieIndex);
-
+    this.props.loadMovie(
+      page,
+      decade,
+      movieIndex,
+      this.props.selectData
+    );
   };
 
   selectedDecade(val) {
@@ -120,7 +133,8 @@ class GetRandomMovie extends Component {
 
   render() {
     const { data } = this.props;
-    // const { pickedPage, backGroundImg } = this.state;
+    // const { renderBoolean } = this.props;
+    console.log(this.props.selectData)
 
     let thecard;
     let backDropImg;
@@ -128,11 +142,13 @@ class GetRandomMovie extends Component {
     if (data) {
       let movieImg = "http://image.tmdb.org/t/p/original/" + data.poster_path;
 
-       backDropImg= {
-       backgroundImage: `url(http://image.tmdb.org/t/p/original/${data.backdrop_path})`,
-       backgroundRepeat: "no-repeat",
-       backgroundSize: "cover"
-      }
+      backDropImg = {
+        backgroundImage: `url(http://image.tmdb.org/t/p/original/${
+          data.backdrop_path
+        })`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover"
+      };
 
       thecard = (
         <MovieCard
@@ -142,11 +158,9 @@ class GetRandomMovie extends Component {
           overview={data.overview}
         />
       );
-
-
     } else {
       thecard = "";
-      backDropImg={}
+      backDropImg = {};
     }
 
     return (
@@ -168,19 +182,25 @@ class GetRandomMovie extends Component {
       //   />
       // </Container>
 
-     <div className="container">
-      <div className='appContainer'>
-          <img className='appNameLogo' src={LOGO} alt="Movie picker logo"/>
-          <h3 className='appSubHeading'>Select by:</h3>
-          <GenreBTN  />
-          <GenreList />
-          <SelectBTN />
+      <div className="container">
+        <div className="appContainer">
+          <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
+          <h3 className="appSubHeading">Select by:</h3>
+          {true ? (
+            <div>
+              <GenreBTN />
+              <SelectBTN onClick={this.handleGetTheMovie}/>
+            </div>
+          ) : (
+            <GenreBTN />
+          )}
+        </div>
       </div>
-
-    </div>
-
     );
   }
 }
 
-export default connect(mapState, actions)(GetRandomMovie);
+export default connect(
+  mapState,
+  actions
+)(GetRandomMovie);

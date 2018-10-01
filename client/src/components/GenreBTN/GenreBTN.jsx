@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 // import  './GenreBTN.css'
 import {GenBtn1, GenBtn2} from './BTNstyle'
-
-const mapState = state => ({
-  backGround: state.moviePicked.data
-});
+import GenreList from '../GenreList/GenreList'
+import GenreList2 from '../GenreList/GenreList2'
 
 
 
@@ -17,7 +15,6 @@ class GenreBTN extends Component {
   }
 
   handleOnClick=()=> {
-    console.log("Hey you");
     this.setState({ clicked:!this.state.clicked })
   }
 
@@ -26,13 +23,19 @@ class GenreBTN extends Component {
     return (
       <div>
       {clicked ? (
+        <React.Fragment>
         <GenBtn2 onClick={this.handleOnClick}>
         GENRE
        </GenBtn2>
+       <GenreList />
+       </React.Fragment>
       ):(
+        <React.Fragment>
       <GenBtn1 onClick={this.handleOnClick}>
         GENRE
       </GenBtn1>
+       <GenreList2 />
+       </React.Fragment>
       )}
       </div>
     );

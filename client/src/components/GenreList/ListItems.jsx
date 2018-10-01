@@ -1,25 +1,56 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+
+const showMenu = keyframes`
+  from {
+    height:0px
+  }
+  to {
+    height:240px
+  }
+`
+const hideMenu = keyframes`
+  from {
+    height:240px
+  }
+  to {
+    height:0px
+  }
+`
+
+export const Container1Closed = styled.div`
+  text-align: center;
+  height: 0px;
+  width: 100%;
+  overflow: hidden;
+  animation-name: ${hideMenu};
+  animation-duration: 1s;
+`;
+
 
 export const Container1 = styled.div`
   text-align: center;
   height: 240px;
   width: 100%;
   overflow: hidden;
+  animation-name: ${showMenu};
+  animation-duration: 1s;
 `;
+
 export const Container2 = styled.div`
   width: 100%;
   height: 90%;
   overflow: auto;
-  padding-right: 15px;
+  padding-right: 0px;
   line-height: 2;
 `;
 
-export const GenreStyle = stlyed.div`
+export const GenreStyle = styled.div`
     font-size: 1.2em;
-    color: #b2b2b2
-    &::hover{
-    font-size: 1.3em;
-    color:#444444
-
+    color: #b2b2b2;
+    background:${props =>props.primary ? '#00FCD3': "blue"};
+    &:hover{
+    font-size: 1.4em;
+    color:white;
     }
 `;
