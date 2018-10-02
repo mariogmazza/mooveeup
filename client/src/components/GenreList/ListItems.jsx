@@ -35,6 +35,7 @@ export const Container1 = styled.div`
   overflow: hidden;
   animation-name: ${showMenu};
   animation-duration: 1s;
+
 `;
 
 export const Container2 = styled.div`
@@ -48,9 +49,9 @@ export const Container2 = styled.div`
 export const GenreStyle = styled.div`
     font-size: 1.2em;
     color: #b2b2b2;
-    background:${props =>props.primary ? '#00FCD3': "blue"};
     &:hover{
     font-size: 1.4em;
     color:white;
+    background:${props =>props.primary ? '#00FCD3': "#00FCD3"};
     }
 `;

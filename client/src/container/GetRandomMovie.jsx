@@ -51,17 +51,6 @@ const easyOnMeMode = decade => {
   return { page, movieIndex };
 };
 
-// const hardCoreFanMode = decade => {
-//   console.log("this is Hardcore mode " + decade);
-//   let pages = 1;
-//   let movieIndex = 0;
-//   // if(decade === "2000"){
-//   pages = Math.floor(Math.random() * 3 + 1);
-//   movieIndex = Math.floor(Math.random() * 20 + 0);
-//   console.log("pages: " + pages + " movieIndex: " + movieIndex);
-//   return { pages, movieIndex };
-//   // }
-// };
 
 // start:"1990-01-01", end:"1999-12-31",finalPage:16}
 // {start:"1980-01-01", end:"1989-12-31",finalPage:18}

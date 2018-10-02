@@ -21,6 +21,8 @@
 body ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
+  /* color:rgb(172, 172, 172) */
+  
 }
 
 /* .genre-style{

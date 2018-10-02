@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./GenreList.css";
 import { GenreStyle, Container1, Container2 } from "./ListItems";
-import { movieGenre } from "../../redux/actions/genreAction";
+import { movieGenre, movieGenreName } from "../../redux/actions/genreAction";
 import { connect } from "react-redux";
 
 const genres = [
@@ -84,7 +84,8 @@ const genres = [
 ];
 
 const actions = {
-  movieGenre
+  movieGenre,
+  movieGenreName
 };
 
 const mapState = state => ({});
@@ -97,19 +98,18 @@ class GenreList extends Component {
     };
   }
 
-  handleOnClick = e => {
-    // {()=>this.setState({clicked:!this.state.clicked})}
-    console.log(this.state.clicked)
-    this.setState({clicked:!this.state.clicked})
+  handleOnClick = nameOfGenre => {
+    console.log(nameOfGenre)
+    this.setState({ clicked: !this.state.clicked });
 
     let arr = [];
     for (let i in genres) {
       let obj = genres[i];
-      if (obj.name === e) {
+      if (obj.name === nameOfGenre) {
         arr.push(obj.id);
       }
     }
-
+    this.props.movieGenreName(nameOfGenre);
     this.props.movieGenre(arr[0]);
   };
 
@@ -117,26 +117,14 @@ class GenreList extends Component {
     return (
       <React.Fragment>
         <Container1>
-          <Container2>
-            {this.state.clicked?
-            (
-              <GenreStyle
-              primary
+          <Container2 multiple>
+            <GenreStyle
               name="Action"
               onClick={e => this.handleOnClick(e.target.getAttribute("name"))}
-            >Action
+            >
+              Action
             </GenreStyle>
-            ):(
-              <GenreStyle
-            
-              name="Action"
-              onClick={e => this.handleOnClick(e.target.getAttribute("name"))}
-            >Action
-            </GenreStyle>
-            )
-          }
-           
-              
+
             <GenreStyle
               name="Adventure"
               onClick={e => this.handleOnClick(e.target.getAttribute("name"))}

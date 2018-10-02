@@ -21,26 +21,21 @@ class SelectBTN extends Component {
   }
   
 submmitGenre=()=>{
-  // this.setState({
-  //   clicked: true
-  // })
-  console.log("before")
-  console.log(this.state.changeColor)
+  
+  console.log(this.props.pickedGenre)
 
  this.props.changePageDecade(()=>{this.setState({changeColor:!this.state.changeColor})})
- console.log("after")
- console.log(this.state.changeColor)
 
 }
   render() {
     return (  
       <div>
-        {this.state.changeColor ?
+        {this.props.pickedGenre ?
         (
-          <SelBTNstyle primary onClick={this.submmitGenre}>GO</SelBTNstyle>
+          <SelBTNstyle primary onClick={this.submmitGenre}>SELECT</SelBTNstyle>
 
         ):(
-          <SelBTNstyle onClick={this.submmitGenre}>GO</SelBTNstyle>
+          <SelBTNstyle onClick={this.submmitGenre}>SELECT</SelBTNstyle>
 
         )
         }

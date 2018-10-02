@@ -9,7 +9,7 @@ const selectBtnReducer = (state = initialState, action) => {
       case CHANGE_TO_DECADE_PAGE:
         return {
             ...state, 
-            data: action.data
+            data: action.payload
         }
       
       default:

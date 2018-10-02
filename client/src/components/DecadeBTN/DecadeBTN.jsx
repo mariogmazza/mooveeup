@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import  './GenreBTN.css'
-import {GenBtn1, GenBtn2} from './BTNstyle'
+import {GenBtn1, GenBtn2} from './DecadeStyled'
 import GenreList from '../GenreList/GenreList'
 import GenreList2 from '../GenreList/GenreList2'
 import { connect } from 'react-redux'
@@ -11,7 +11,7 @@ const mapState=state=>({
 })
 
 
-class GenreBTN extends Component {
+class DecadeBTN extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ class GenreBTN extends Component {
         <GenBtn2 onClick={this.handleOnClick}>
         GENRE 
        </GenBtn2>
-       <span style={{color:'rgb(172, 172, 172)'}}>{this.props.chosenGenre}</span>
+       <span style={{color:'rgb(172, 172, 172)'}}>Temp 2000</span>
 
 
        <GenreList />
@@ -51,4 +51,4 @@ class GenreBTN extends Component {
   }
 }
 
-export default connect(mapState)(GenreBTN)
+export default connect(mapState)(DecadeBTN)
