@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./GenreList.css";
-import { GenreStyle, Container1, Container2 } from "./ListItems";
+import { GenreStyle, Container1, Container2 } from "./ListItemGenre";
 import { movieGenre, movieGenreName } from "../../redux/actions/genreAction";
 import { connect } from "react-redux";
 
@@ -99,7 +99,8 @@ class GenreList extends Component {
   }
 
   handleOnClick = nameOfGenre => {
-    console.log(nameOfGenre)
+
+
     this.setState({ clicked: !this.state.clicked });
 
     let arr = [];

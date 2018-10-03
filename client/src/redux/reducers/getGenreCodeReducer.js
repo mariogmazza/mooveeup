@@ -2,7 +2,7 @@ import { SEND_MOVIE_GENRE_CODE } from "../actions/movieConstants";
 
 let initialState={}
 
-const getGenreReducer = (state = initialState, action) => {
+const getGenreCodeReducer = (state = initialState, action) => {
     switch (action.type) {
       case SEND_MOVIE_GENRE_CODE:
         return {
@@ -15,4 +15,4 @@ const getGenreReducer = (state = initialState, action) => {
     }
   };
 
-  export default getGenreReducer;
+  export default getGenreCodeReducer;

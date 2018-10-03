@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import  './GenreBTN.css'
-import {GenBtn1, GenBtn2} from './BTNstyle'
+import {GenBtn1, GenBtn2} from './GenreStyled'
 import GenreList from '../GenreList/GenreList'
 import GenreList2 from '../GenreList/GenreList2'
 import { connect } from 'react-redux'
@@ -34,8 +34,6 @@ class GenreBTN extends Component {
         GENRE 
        </GenBtn2>
        <span style={{color:'rgb(172, 172, 172)'}}>{this.props.chosenGenre}</span>
-
-
        <GenreList />
        </React.Fragment>
       ):(

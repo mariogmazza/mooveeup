@@ -1,6 +1,6 @@
 import React from "react";
 import "./GenreList.css";
-import { GenreStyle, Container1Closed, Container2 } from "./ListItems";
+import { GenreStyle, Container1Closed, Container2 } from "./ListItemGenre";
 
 
 

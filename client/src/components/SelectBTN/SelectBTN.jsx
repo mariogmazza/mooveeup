@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SelBTNstyle from "./SelBTNstyle";
+import SelBTNstyle from "./SelectBTNStyled";
 import {connect} from 'react-redux'
 import {changePageDecade} from '../../redux/actions/selectBtnAction'
 
@@ -24,9 +24,12 @@ submmitGenre=()=>{
   
   console.log(this.props.pickedGenre)
 
- this.props.changePageDecade(()=>{this.setState({changeColor:!this.state.changeColor})})
+//  this.props.changePageDecade(()=>{this.setState({changeColor:!this.state.changeColor})})
+this.props.changePageDecade(this.props.pickedGenre)
 
 }
+
+
   render() {
     return (  
       <div>
