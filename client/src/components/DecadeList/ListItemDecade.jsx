@@ -52,6 +52,6 @@ export const DecadeStyle = styled.div`
     &:hover{
     font-size: 1.4em;
     color:white;
-    background:${props =>props.primary ? '#00FCD3': "#00FCD3"};
+    background:${props =>props.primary ? '#C64747': "#C64747"};
     }
 `;

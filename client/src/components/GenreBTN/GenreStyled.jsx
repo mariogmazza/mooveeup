@@ -4,10 +4,13 @@ const firstChoice = keyframes`
   from {
     background-color: rgb(255, 255, 255) ;
     margin-left: 98px;
+    background-color: #C64747;
+
   }
   to {
     background-color: rgb(255, 255, 255, 0) ;
     margin-left: 0px;
+
   }
 `
 
@@ -16,10 +19,14 @@ const secondChoice = keyframes`
   from {
     background-color: rgb(255, 255, 255, 0) ;
     margin-left: 0px;
+    background-color: #C64747;
+
   }
   to {
     background-color: rgb(255, 255, 255) ;
     margin-left: 98px;
+    background-color: #C64747;
+
   }
 `
 
@@ -29,7 +36,10 @@ export const GenBtn1 = styled.button`
     font-weight: bold;
     width: 178px;
     height: 55px;
-    background-color: rgb(255, 255, 255) ;
+    /* background-color: rgb(255, 255, 255) ; */
+    background-color: #C64747;
+    color: white;
+
     border: none;
     border-radius: 26px;
     margin-left: 98px;
@@ -46,7 +56,10 @@ export const GenBtn2 = styled.button`
     font-weight: bold;
     width: 178px;
     height: 55px;
+
     background-color: rgb(255, 255, 255, 0) ;
+    color:white;
+
     border: none;
     border-radius: 26px;
     margin-top: 38px;

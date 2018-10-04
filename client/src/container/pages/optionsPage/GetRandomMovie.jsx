@@ -2,15 +2,15 @@ import React, { Component } from "react";
 // import axios from "axios";
 // import { Button, Dropdown, Container } from "semantic-ui-react";
 // import MovieCard from "../components/MovieCard";
-import { loadMovie } from "../redux/actions/getMovieAction";
+import { loadMovie } from "../../../redux/actions/getMovieAction";
 import { connect } from "react-redux";
-import LOGO from "../assets/img/LogoMoviePicker.svg";
+import LOGO from "../../../assets/img/NewLogoXmovie_White.png";
 import "./getrandommovie.css";
-import GenreBTN from "../components/GenreBTN/GenreBTN";
+import GenreBTN from "../../../components/GenreBTN/GenreBTN";
 // import GenreList from "../components/GenreList/GenreList";
-import SelectBTN from "../components/SelectBTN/SelectBTN";
-import DecadeBTN from "../components/DecadeBTN/DecadeBTN";
-import GetMovieBTN from "../components/GetMovieBTN/GetMovieBTN";
+import SelectBTN from "../../../components/SelectBTN/SelectBTN";
+import DecadeBTN from "../../../components/DecadeBTN/DecadeBTN";
+import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 
 // const decadeOptions = [
 //   {
@@ -19,7 +19,7 @@ import GetMovieBTN from "../components/GetMovieBTN/GetMovieBTN";
 //     value: "2000"
 //   },
 //   {
-//     key: 2,
+//     key: 2, 
 //     text: "90's",
 //     value: "90"
 //   },

@@ -6,14 +6,15 @@
 .appContainer{
     width: 375px;
     height: 667px;
-    background-color:#EFF2F2;
+    /* background-color:#EFF2F2; */
+    background-color: rgb(64, 72, 84);
     border: none;
 }
 
 .appNameLogo{
     padding-top: 43px;
     padding-left: 10px;
-    width: 284px;
+    width: 207px;
     height: 188px;
 }
 

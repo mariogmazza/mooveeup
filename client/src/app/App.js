@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GetRandomMovie from '../container/GetRandomMovie';
+import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
 // import Layout from '../components/Layout';
 
 
