@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
-// import Layout from '../components/Layout';
+// import FinalDisplay from '../container/pages/chosenMovieDisplay/FinalDisplay'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 
 
 class App extends Component {
@@ -25,9 +27,12 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-      <GetRandomMovie />
-      </React.Fragment>
+      <Router>
+        <Switch >
+          <Route exact path='/' component={GetRandomMovie} />
+          {/* <Route path='/result' component={FinalDisplay} /> */}
+        </Switch>
+      </Router>
     );
   }
 }

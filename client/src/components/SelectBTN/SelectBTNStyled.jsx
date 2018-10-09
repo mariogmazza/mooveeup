@@ -14,7 +14,7 @@ import styled from 'styled-components';
     margin-left: 98px;
     outline:none;
     position: fixed;
-    bottom: 70px;
+    bottom: 34px;
 `
 
 // C64747 new rojo

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import axios from "axios";
 // import { Button, Dropdown, Container } from "semantic-ui-react";
 // import MovieCard from "../components/MovieCard";
-import { loadMovie } from "../../../redux/actions/getMovieAction";
+// import { loadMovie } from "../../../redux/actions/getMovieAction";
 import { connect } from "react-redux";
 import LOGO from "../../../assets/img/NewLogoXmovie_White.png";
 import "./getrandommovie.css";
@@ -11,6 +11,7 @@ import GenreBTN from "../../../components/GenreBTN/GenreBTN";
 import SelectBTN from "../../../components/SelectBTN/SelectBTN";
 import DecadeBTN from "../../../components/DecadeBTN/DecadeBTN";
 import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
+import FinalDisplay from "../chosenMovieDisplay/FinalDisplay";
 
 // const decadeOptions = [
 //   {
@@ -19,7 +20,7 @@ import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 //     value: "2000"
 //   },
 //   {
-//     key: 2, 
+//     key: 2,
 //     text: "90's",
 //     value: "90"
 //   },
@@ -58,9 +59,9 @@ import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 // {start:"1970-01-01", end:"1979-12-31",finalPage:8}
 // {start:"2000-01-01", end:`${presentDate}`, finalPage:75}
 
-const actions = {
-  loadMovie
-};
+// const actions = {
+//   loadMovie
+// };
 
 const mapState = state => ({
   data: state.moviePicked.data,
@@ -167,27 +168,44 @@ class GetRandomMovie extends Component {
 
       <div className="container">
         <div className="appContainer">
-          <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
-          <h3 className="appSubHeading">Select by:</h3>
 
-          {this.props.finalGenreCode ? (
-            <div>
-              <DecadeBTN />
-              <GetMovieBTN />
-            </div>
-          ) : (
-            <div>
-              <GenreBTN />
-              <SelectBTN />
-            </div>
-          )}
+
+      {this.props.data ? (
+
+        <FinalDisplay />
+
+      ):(
+        
+        this.props.finalGenreCode ? (
+           
+          <div>
+          <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
+         <h3 className="appSubHeading">Select by:</h3>
+            <DecadeBTN />
+            <GetMovieBTN />
+          </div>
+        ) : (
+          <div>
+          <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
+        <h3 className="appSubHeading">Select by:</h3>
+            <GenreBTN />
+            <SelectBTN />
+          </div>
+        )
+
+      )}
+
+
+
+
+
+
+
+
         </div>
       </div>
     );
   }
 }
 
-export default connect(
-  mapState,
-  actions
-)(GetRandomMovie);
+export default connect(mapState)(GetRandomMovie);

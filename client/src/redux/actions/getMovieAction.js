@@ -1,5 +1,6 @@
 import { GET_RANDOM_MOVIE } from "./movieConstants";
 import axios from "axios";
+require('dotenv').config();
 
 
 

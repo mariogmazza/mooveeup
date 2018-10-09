@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 
+
  const GetMovieBTNStyled = styled.button`
     font-family: Segoe UI;
     font-size: 21px;
@@ -14,10 +15,10 @@ import styled from 'styled-components';
     margin-left: 98px;
     outline:none;
     position: fixed;
-    bottom: 70px;
-`
+    bottom: 34px
+`;
 
-// C64747 rojo posible
-// #00FCD3 verde theme
+ /* C64747 rojo posible */
+/* #00FCD3 verde theme */
 
 export default GetMovieBTNStyled;

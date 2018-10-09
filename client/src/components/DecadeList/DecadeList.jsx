@@ -8,20 +8,23 @@ import {
 import { connect } from "react-redux";
 
 const selectedDecade = val => {
-  const nowDate = new Date();
-  let month = nowDate.getMonth();
-  let day = nowDate.getDay();
-  const year = nowDate.getFullYear();
+  let nowDate = new Date();
+  let n = nowDate.toISOString();
 
-  if (month <= 9) {
-    month = "0" + month;
-  }
+  let month = n.substring(5, 7);
+  let day = n.substring(8, 10);
+  const  year = n.substring(0,4)
 
-  if (day <= 9) {
-    day = "0" + day;
-  }
+  // if (month <= 9) {
+  //   month = "0" + month;
+  // }
+
+  // if (day <= 9) {
+  //   day = "0" + day;
+  // }
 
   const presentDate = year + "-" + month + "-" + day;
+  console.log(presentDate)
 
   if (val === "90") {
     return { start: "1990-01-01", end: "1999-12-31" };

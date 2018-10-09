@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GetMovieBTNStyled from "./GetMovieBTNStyled";
 import { connect } from "react-redux";
 import { loadMovie } from "../../redux/actions/getMovieAction";
-import MovieCard from '../MovieCard'
+// import MovieCard from '../MovieCard'
 
 
 const easyOnMeMode = decade => {
@@ -32,9 +32,7 @@ const easyOnMeMode = decade => {
   const mapState=state=>({
     decadeString:state.chosenDecadeString.data,
     decadeObject:state.chosenDecadeObject.data,
-    finalGenreCode: state.finalSelectedGenre.data,
-    finalData: state.moviePicked.data,
-
+    finalGenreCode: state.finalSelectedGenre.data
   })
 
 class GetMovieBTN extends Component {
@@ -48,40 +46,40 @@ class GetMovieBTN extends Component {
 
   getTheXmovie = () => {
     const { page, movieIndex } = easyOnMeMode(this.props.decadeString);
-
+    if(this.props.decadeObject){
     this.props.loadMovie(page, this.props.decadeObject, movieIndex, this.props.finalGenreCode );
-
+    }
 
   };
   render() {
 
-    let thecard;
-    let backDropImg;
-    let finalData=this.props.finalData
+    // let thecard;
+    // let backDropImg;
+    // let finalData=this.props.finalData
 
-    if (finalData) {
-      let movieImg = "http://image.tmdb.org/t/p/original/" + finalData.poster_path;
+    // if (finalData) {
+    //   let movieImg = "http://image.tmdb.org/t/p/original/" + finalData.poster_path;
 
-      backDropImg = {
-        backgroundImage: `url(http://image.tmdb.org/t/p/original/${
-          finalData.backdrop_path
-        })`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover"
-      };
+    //   backDropImg = {
+    //     backgroundImage: `url(http://image.tmdb.org/t/p/original/${
+    //       finalData.backdrop_path
+    //     })`,
+    //     backgroundRepeat: "no-repeat",
+    //     backgroundSize: "cover"
+    //   };
 
-      thecard = (
-        <MovieCard
-          imgPath={movieImg}
-          title={finalData.title}
-          relDate={finalData.release_date}
-          overview={finalData.overview}
-        />
-      );
-    } else {
-      thecard = "";
-      backDropImg = {};
-    }
+    //   thecard = (
+    //     <MovieCard
+    //       imgPath={movieImg}
+    //       title={finalData.title}
+    //       relDate={finalData.release_date}
+    //       overview={finalData.overview}
+    //     />
+    //   );
+    // } else {
+    //   thecard = "";
+    //   backDropImg = {};
+    // }
  
 
 
@@ -92,7 +90,6 @@ class GetMovieBTN extends Component {
           <GetMovieBTNStyled primary onClick={this.getTheXmovie}>
             X MOVIE
           </GetMovieBTNStyled>
-          {thecard}
           </div>
         ) : (
           <GetMovieBTNStyled onClick={this.getTheXmovie}>
