@@ -1,5 +1,6 @@
 module.exports = {
-    ...require('./auth')
+    ...require('./auth'),
+    ...require('./movie')
 }
 
 module.exports.errors = (err, req, res, next) => {

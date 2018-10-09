@@ -15,13 +15,13 @@ app.use(cors());
 app.use(bodyparser.json())
 
 
-
-app.get('/', (req, res) =>
-  res.json({
+app.get('/', (req, res) => res.json({
     hello: 'pepe'
   }))
 
-app.use('/api/auth', routes.auth)
+app.use('/api/auth', routes.auth);
+app.use('/api/movies', routes.movie);
+
 
 app.use(handle.notFound)
 app.use(handle.errors)
