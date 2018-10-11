@@ -15,18 +15,19 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    wishedListed_by: [{
+    wishedListedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie'
     }],
-    watched_by: [{
+    watchedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie'
     }]
 });
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function(next) {
     try {
+
         if (!this.isModified('password')) {
             return next();
         }
@@ -39,11 +40,11 @@ userSchema.pre('save', async function (next) {
     }
 });
 
-userSchema.methods.comparePassword = async function (attempt, next) {
+userSchema.methods.comparePassword = async function(attempt, next) {
     try {
         return await bcrypt.compare(attempt, this.password)
     } catch (err) {
-        return next(err)
+        return next(err);
     }
 };
 

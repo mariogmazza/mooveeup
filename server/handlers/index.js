@@ -1,11 +1,15 @@
 module.exports = {
     ...require('./auth'),
-    ...require('./movie')
+    ...require('./moviesWishlist'),
+    ...require('./moviesWatched')
 }
 
 module.exports.errors = (err, req, res, next) => {
-    res.status(err.status || 400).json({
-        err: err.message || 'Something went wrong'
+    res.status(err.status || 500).json({
+        success: false,
+        error:{
+            message: err.message || 'Something went wrong'
+        }
     });
 }
 

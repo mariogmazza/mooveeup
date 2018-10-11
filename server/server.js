@@ -1,26 +1,31 @@
 require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors')
 
-const db = require('./models')
-const handle = require('./handlers')
-const routes = require('./routes')
+// const db = require('./models')
+const handle = require('./handlers');
+const routes = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(bodyparser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/', (req, res) => res.json({
-    hello: 'pepe'
-  }))
+
+// app.get('/', (req, res) => res.json({
+//     hello: 'pepe'
+//   }))
 
 app.use('/api/auth', routes.auth);
-app.use('/api/movies', routes.movie);
+app.use('/api/watched', routes.movieWatched);
+app.use('/api/wished', routes.movieWishlist);
+
 
 
 app.use(handle.notFound)

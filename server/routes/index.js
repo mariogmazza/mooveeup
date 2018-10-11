@@ -1,3 +1,6 @@
 module.exports.auth = require('./auth');
 
-module.exports.movie = require('./movie')
+module.exports.movieWatched = require('./moviesWatched')
+
+module.exports.movieWishlist = require('./moviesWishlist')
+
