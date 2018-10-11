@@ -12,10 +12,10 @@ import thunk from 'redux-thunk'
   // const composeEnhancers = compose(...storeEnhancers);
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose(...storeEnhancers); // add support for Redux dev tools
-  const store = createStore(rootReducer, preloadedState, composeEnhancers(
-    applyMiddleware(...middlewares)
-    )
-  );
+
+  const store = createStore(rootReducer, preloadedState, composeEnhancers( applyMiddleware(...middlewares) ) );
+
+
 
   // const store = createStore(rootReducer, preloadedState, composeEnhancers);
 

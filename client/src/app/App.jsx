@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
 // import FinalDisplay from '../container/pages/chosenMovieDisplay/FinalDisplay'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import store from '../redux/store/configureStore';
+import { setCurrentUser, setToken } from '../redux/actions/authAction';
+import { addError } from '../redux/actions/errorAction';
+import decode from 'jwt-decode';
 
-
-class App extends Component {
-  state = {
-    response: ''
-  };  
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+if(localStorage.jwtToken){
+  setToken(localStorage.jwtToken);
+  try{
+    store.dispatch(setCurrentUser(decode(localStorage.jwtToken)));
+  } catch(err){
+    store.dispatch(setCurrentUser({}));
+    store.dispatch(addError(err));
   }
+}
 
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
 
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
-  render() {
+const App = () => {
+    
     return (
       <Router>
         <Switch >
@@ -35,6 +30,5 @@ class App extends Component {
       </Router>
     );
   }
-}
 
 export default App;

@@ -5,5 +5,13 @@ export const GET_RANDOM_MOVIE = "GET_RANDOM_MOVIE";
  export const SEND_MOVIE_DECADE_OBJECT = "SEND_MOVIE_DECADE_OBJECT";
  export const SEND_MOVIE_DECADE_STRING = "SEND_MOVIE_DECADE_STRING";
 
+ export const ADD_ERROR = 'ADD_ERROR';
+ export const REMOVE_ERROR = 'ERROR_REMOVE';
+
+ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+
+ 
+
 
 
