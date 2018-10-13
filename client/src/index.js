@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 // import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 import  configureStore  from "./redux/store/configureStore";
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import App from "./app/App";
 import { Provider } from "react-redux";
 
@@ -12,7 +14,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+       <App />
+   </Router>
   </Provider>,
   document.getElementById("root")
 );

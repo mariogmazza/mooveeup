@@ -43,7 +43,7 @@ class Auth extends Component {
     return (
       <div>
         <form className="form" onSubmit={this.handleSubmit}>
-          <label className="form-label" for="username">
+          <label className="form-label" htmlFor="username">
             username{" "}
           </label>
           <input
@@ -54,7 +54,7 @@ class Auth extends Component {
             autoComplete="off"
             className="form-input"
           />
-          <label className="form-label" for="password">
+          <label className="form-label" htmlFor="password">
             password{" "}
           </label>
           <input
