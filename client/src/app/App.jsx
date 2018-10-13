@@ -3,10 +3,14 @@ import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
 // import FinalDisplay from '../container/pages/chosenMovieDisplay/FinalDisplay'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import store from '../redux/store/configureStore';
+import configureStore from '../redux/store/configureStore';
 import { setCurrentUser, setToken } from '../redux/actions/authAction';
 import { addError } from '../redux/actions/errorAction';
 import decode from 'jwt-decode';
+
+import Auth from '../components/Auth/Auth';
+
+const store = configureStore();
 
 if(localStorage.jwtToken){
   setToken(localStorage.jwtToken);
@@ -17,7 +21,10 @@ if(localStorage.jwtToken){
     store.dispatch(addError(err));
   }
 }
-
+ 
+const LoginAuth=()=>{
+  return <Auth authType={'login'} />
+}
 
 const App = () => {
     
@@ -25,7 +32,7 @@ const App = () => {
       <Router>
         <Switch >
           <Route exact path='/' component={GetRandomMovie} />
-          {/* <Route path='/result' component={FinalDisplay} /> */}
+          <Route path='/authTest' component={LoginAuth} />
         </Switch>
       </Router>
     );

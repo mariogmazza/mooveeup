@@ -1,4 +1,4 @@
-import {addError,removeError} from './errorAction';
+import {addError, removeError} from './errorAction';
 import { SET_CURRENT_USER } from '../actions/movieConstants';
 import api from '../../services/api'
 
@@ -30,9 +30,9 @@ export const authUser = (path, data) =>{
             dispatch(setCurrentUser(user));
             dispatch(removeError());
         }catch(err){
-            const { error } = err.response.data;
-
-            dispatch(addError(error));
+            const { error} = err.response.data;
+            console.log(error.message)
+            dispatch(addError(error.message));
         }
     }
 }

@@ -18,6 +18,8 @@ import {
   YearRelease
 } from "./FinalDisplayStyled";
 
+import ErrorMessage from "../../../components/Auth/ErrorMessage";
+
 const mapState = state => ({
   data: state.moviePicked.data
 });
@@ -96,6 +98,8 @@ class FinalDisplay extends Component {
         </MovieYearCont>
 
         <MovieDesCont>{overView}</MovieDesCont>
+
+        <ErrorMessage />
 
         <GetMovieBTN>NEW MOVIE</GetMovieBTN>
       </div>
