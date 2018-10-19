@@ -6,7 +6,7 @@ import ErrorMessage from '../../../components/Auth/ErrorMessage';
 
 
 const Authpage = ({ authType, isAuthenticated }) => {
-    if(isAuthenticated) return <Redirect to='/' />
+    if(isAuthenticated) return <Redirect to='/xmovieweb' />
   return (
     <div>
         <ErrorMessage />
