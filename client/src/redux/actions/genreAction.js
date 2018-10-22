@@ -1,4 +1,4 @@
-    import { SEND_MOVIE_GENRE_CODE, SEND_MOVIE_GENRE_NAME} from '../actions/movieConstants'
+    import { SEND_MOVIE_GENRE_CODE, SEND_MOVIE_GENRE_NAME, GENRE_BTN_CLICKED} from '../actions/movieConstants'
 
 
 export const movieGenre=(genreCode)=>{
@@ -15,3 +15,10 @@ export const movieGenre=(genreCode)=>{
         data: genreName
       }
     }
+
+  export const genreBtnClicked=(clicked)=>{
+    return {
+      type: GENRE_BTN_CLICKED,
+      data: clicked
+    }
+  }

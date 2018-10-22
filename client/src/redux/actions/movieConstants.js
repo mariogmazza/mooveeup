@@ -10,6 +10,8 @@ export const GET_RANDOM_MOVIE = "GET_RANDOM_MOVIE";
 
  export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
+ export const GENRE_BTN_CLICKED = 'GENRE_BTN_CLICKED';
+
 
  
 

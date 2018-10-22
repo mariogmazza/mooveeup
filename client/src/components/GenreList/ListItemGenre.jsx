@@ -19,6 +19,9 @@ const hideMenu = keyframes`
 `
 
 export const Container1Closed = styled.div`
+  grid-column: span 12;
+  margin-left: 84px;
+
   text-align: center;
   height: 0px;
   width: 100%;
@@ -29,6 +32,9 @@ export const Container1Closed = styled.div`
 
 
 export const Container1 = styled.div`
+  grid-column: span 12;
+  margin-left: 84px;
+
   text-align: center;
   height: 240px;
   width: 100%;
@@ -39,6 +45,7 @@ export const Container1 = styled.div`
 `;
 
 export const Container2 = styled.div`
+
   width: 100%;
   height: 90%;
   overflow: auto;

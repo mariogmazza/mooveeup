@@ -8,45 +8,76 @@ import DecadeBTN from "../../../components/DecadeBTN/DecadeBTN";
 import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 import FinalDisplay from "../chosenMovieDisplay/FinalDisplay";
 import Navbar from "../../../components/NavBar/Navbar";
+import MobileNavBar from "../../../components/MobileNavBar/MobileNavBar";
 
 const mapState = state => ({
   data: state.moviePicked.data,
-  finalGenreCode: state.finalSelectedGenre.data
+  finalGenreCode: state.finalSelectedGenre.data,
+  hideLogo: state.genreBTNClicked.data,
+
+  chosenGenre: state.chosenGenreName.data
 });
 
 class GetRandomMovie extends Component {
   state = {
-    data: "",
-    decade: {
-      start: "1970-01-01",
-      end: "1999-12-31"
-    }
+    data: {}
   };
 
   render() {
     return (
-      <div className="container">
+      <div className="xContainer">
+        <div id="speaker" />
+
         <div className="appContainer">
           {this.props.data ? (
             <FinalDisplay />
           ) : this.props.finalGenreCode ? (
             <div>
-              <Navbar />
-              <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
+              <MobileNavBar />
+              {/* <img className="appNameLogo" src={LOGO} alt="Movie picker logo" /> */}
               <h3 className="appSubHeading">Select by:</h3>
               <DecadeBTN />
               <GetMovieBTN />
             </div>
           ) : (
-            <div>
-              <Navbar />
-              <img className="appNameLogo" src={LOGO} alt="Movie picker logo" />
-              <h3 className="appSubHeading">Select by:</h3>
+            <React.Fragment>
+              <MobileNavBar />
+
+              {this.props.hideLogo ? (
+                <React.Fragment>
+                  <img
+                    className="appNameLogoFadeOut"
+                    src={LOGO}
+                    alt="Movie picker logo"
+                  />
+                </React.Fragment>
+              ) : (
+                <img
+                  className="appNameLogo"
+                  src={LOGO}
+                  alt="Movie picker logo"
+                />
+              )}
+
+              <h3 className="appSubHeading">
+                Select by:
+                <span
+                  style={{
+                    color: "rgb(172, 172, 172)",
+                    fontSize: "15px",
+                    marginLeft: "20px"
+                  }}
+                >
+                  {this.props.chosenGenre}
+                </span>
+              </h3>
+
               <GenreBTN />
-              <SelectBTN />
-            </div>
+              {this.props.hideLogo ? <SelectBTN /> : null}
+            </React.Fragment>
           )}
         </div>
+        <div id="controlder" />
       </div>
     );
   }

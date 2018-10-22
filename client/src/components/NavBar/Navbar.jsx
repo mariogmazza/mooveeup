@@ -4,15 +4,21 @@ import Radium, { StyleRoot } from "radium";
 
 import { Link } from "react-router-dom";
 
-
-import { Link as ScrollLink, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
- 
+import {
+  Link as ScrollLink
+  //   DirectLink,
+  //   Element,
+  //   Events,
+  //   animateScroll as scroll,
+  //   scrollSpy,
+  //   scroller
+} from "react-scroll";
 
 import {
   TopNavLeft,
   TopNavRight,
   NavA,
-  NavActiveR,
+  //   NavActiveR,
   BurgerIcon,
   IconImg
 } from "./NavbarStyled";
@@ -31,7 +37,6 @@ function Navbar() {
             color: "#ddd",
             float: "left",
             display: "block",
-            backgroundColor: "#c64747",
             textAlign: "center",
             padding: "14px 16px",
             textDecoration: "none",
@@ -39,13 +44,41 @@ function Navbar() {
             ":hover": { background: "#ddd", color: "black" }
           }}
         >
-          Home
+          XMOVIE
         </RadiatingLink>
 
+        <ScrollLink to="features" spy={true} smooth={true} duration={500}>
+          <NavA>Features</NavA>
+        </ScrollLink>
 
-      <ScrollLink to='features' spy={true} smooth={true} duration={500} > <NavA>Features</NavA></ScrollLink> 
-      <ScrollLink to='findus' spy={true} smooth={true} duration={500} > <NavA>Find us</NavA></ScrollLink> 
- 
+        <ScrollLink to="findus" spy={true} smooth={true} duration={500}>
+          <NavA>Find us</NavA>
+        </ScrollLink>
+
+          
+          <RadiatingLink
+              to="/xmovieweb"
+              style={{
+                float: "left",
+                display: "block",
+                color: "#707070",
+                textAlign: "center",
+                padding: "14px 16px",
+                textDecoration: "none",
+                fontSize: "17px",
+                ":hover": {
+                  backgroundColor: "#ddd",
+                  color: "black"
+                },
+                // "@media screen and (max-width: 600px)": {
+                //   display: "none"
+                // }
+              }}
+            >
+              Try it now
+            </RadiatingLink>
+
+
         <TopNavRight>
           <StyleRoot>
             <RadiatingLink
@@ -78,7 +111,9 @@ function Navbar() {
                 padding: "14px 16px",
                 textDecoration: "none",
                 fontSize: "17px",
-                ":hover": { backgroundColor: "#ddd", color: "black"
+                ":hover": {
+                  backgroundColor: "#ddd",
+                  color: "black"
                 },
                 "@media screen and (max-width: 600px)": {
                   display: "none"
@@ -88,6 +123,7 @@ function Navbar() {
               LogIn
             </RadiatingLink>
           </StyleRoot>
+
         </TopNavRight>
 
         <BurgerIcon>

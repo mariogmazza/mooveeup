@@ -31,6 +31,10 @@ const secondChoice = keyframes`
 `
 
 export const GenBtn1 = styled.button`
+    /* grid-area:g; */
+
+    grid-column: span 12;
+
     font-family: Segoe UI;
     font-size: 21px;
     font-weight: bold;
@@ -43,7 +47,7 @@ export const GenBtn1 = styled.button`
     border: none;
     border-radius: 26px;
     margin-left: 98px;
-    margin-top: 38px;
+    /* margin-top: 38px; */
     outline:none;  
     animation-name: ${secondChoice};
     animation-duration: 2s;
@@ -51,6 +55,10 @@ export const GenBtn1 = styled.button`
 `
 
 export const GenBtn2 = styled.button`
+    /* grid-area: g; */
+
+    grid-column: span 12;
+
     font-family: Segoe UI;
     font-size: 21px;
     font-weight: bold;
@@ -62,7 +70,7 @@ export const GenBtn2 = styled.button`
 
     border: none;
     border-radius: 26px;
-    margin-top: 38px;
+    /* margin-top: 38px; */
     outline:none;  
     animation-name: ${firstChoice};
     animation-duration: 2s;

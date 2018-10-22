@@ -1,15 +1,16 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import Radium, { StyleRoot } from "radium";
 
 import {
   Link as ScrollLink,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller
+  // DirectLink,
+  Element
+  // Events,
+  // animateScroll as scroll,
+  // scrollSpy,
+  // scroller
 } from "react-scroll";
 
 import "./HomePage.css";
@@ -19,28 +20,49 @@ import GoogleImg from "../../../assets/img/googlePlay.png";
 import AppleImg from "../../../assets/img/appStore.png";
 import Navbar from "../../../components/NavBar/Navbar";
 
+const RadiatingLink = Radium(Link);
+
 const HomePage = () => {
   return (
-    <Container>
+    <div className="containerMain">
       <Element name="hometop" />
-      
+
       <Navbar />
 
-      <div class="hero">
-        <div class="hero_spacer" />
-        <div class="hero_text">
+      <div className="hero">
+        <div className="hero_spacer" />
+        <div className="hero_text">
           Enjoy your favorites movies
           <br />
           even more with us
           <br />
-          <p class="hero_para_text">
+          <p className="hero_para_text">
             Struggling when choosing a movie?
             <br />
             Want to manage the movies you watch?
             <br />
             Every film fan will love our app.
           </p>
-          <button className="hero_get_the_app_btn">
+          <RadiatingLink
+            to="/xmovieweb"
+            style={{
+              width: "150px",
+              height: "51px",
+              background: "#C64747",
+              borderRadius: "21px",
+              border: "none",
+              outline: "none",
+              color: "white",
+              fontSize: "17px",
+              fontWeight: "bold",
+              textDecoration:'none',
+              padding:'12px 30px 12px 30px',
+            }}
+          >
+            TRY IT NOW
+          </RadiatingLink>
+
+          {/* <button className="hero_get_the_app_btn">
             <Link
               style={{
                 color: "white",
@@ -51,27 +73,27 @@ const HomePage = () => {
             >
               TRY IT NOW
             </Link>
-          </button>
-          <p class="hero_info">* no registration required</p>
+          </button> */}
+          <p className="hero_info">* no registration required</p>
         </div>
 
-        <div class="hero_app_phone">
-          <img class="hero_app_phone_img" src={AppImg} alt="" />
+        <div className="hero_app_phone">
+          <img className="hero_app_phone_img" src={AppImg} alt="" />
         </div>
       </div>
 
       <Element name="features" />
 
-      <div class="features">
-        <div class="features_img_div">
-          <img class="feat_img" src={FeatureImg} alt="" />
+      <div className="features">
+        <div className="features_img_div">
+          <img className="feat_img" src={FeatureImg} alt="" />
         </div>
-        <div class="features_spacer"> </div>
+        <div className="features_spacer"> </div>
 
-        <div class="features_text">
+        <div className="features_text">
           Improve your film experience
           <br />
-          <p class="features_para">
+          <p className="features_para">
             With so many streaming services and options to watch any movie or TV
             show at the tip of your fingers, it's easy to get overwhelmed.
             XMOVIE is here to help you make an easy and fast decision so you can
@@ -86,20 +108,42 @@ const HomePage = () => {
 
       <Element name="findus" />
 
-      <div class="findus">
-        <button class="findus_get_the_app_btn">GET THE APP</button>
+      <div className="findus">
+        <button className="findus_get_the_app_btn">GET THE APP</button>
 
-        <div class="findus_title">Don't wait and download the app!</div>
+        <div className="findus_title">Don't wait and download the app!</div>
 
-        <div class="findus_spacer" />
-        <img class="findus_icon_google" src={GoogleImg} alt="" />
-        <img class="findus_icon_apple" src={AppleImg} alt="" />
+        <div className="findus_spacer" />
+        <img className="findus_icon_google" src={GoogleImg} alt="" />
+        <img className="findus_icon_apple" src={AppleImg} alt="" />
 
-        <div class="findus_links">
+        <div className="findus_links">
           <ul>
             <li>Navigation</li>
-            <li><ScrollLink style={{color:'white'}} to='hometop' spy={true} smooth={true} duration={500} > Home </ScrollLink> </li>
-            <li><ScrollLink style={{color:'white'}} to='features' spy={true} smooth={true} duration={500} > Features </ScrollLink> </li>
+            <li>
+              <ScrollLink
+                style={{ color: "white" }}
+                to="hometop"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {" "}
+                Home{" "}
+              </ScrollLink>{" "}
+            </li>
+            <li>
+              <ScrollLink
+                style={{ color: "white" }}
+                to="features"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {" "}
+                Features{" "}
+              </ScrollLink>{" "}
+            </li>
           </ul>
 
           <ul>
@@ -115,8 +159,8 @@ const HomePage = () => {
           </ul>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
-export default HomePage;
+export default withRouter(HomePage);

@@ -1,32 +1,109 @@
-.container{
+.xContainer {
+    width: 340px;
+    height: 480px;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    padding: 20px 5px 100px 5px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px 0px #ccc;
+}
+
+
+/* .AppWrapper{
     display: grid;
     justify-content: center;
-}
+    width:414px;
+    height: 736px;
+} */
 
-.appContainer{
-    width: 375px;
-    height: 667px;
-    /* background-color:#EFF2F2; */
+.appContainer {
+    /* width: 100%; */
+    height: 100%;
     background-color: rgb(64, 72, 84);
-    /* background-image: url("../../../../src/assets/img/gridOfMovies.jpg"); */
-    
     border: none;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    /* grid-template-areas:
+    "n n n n n n n n n n n n"
+    ". l l l l l l l l l . ."
+    ". s s . . . . . . . . ."
+    ". . g g g g g . . . . ."; */
+
+
 }
 
-.appNameLogo{
-    padding-top: 43px;
+.appNameLogo {
+    /* grid-area: l; */
+
+    grid-column: span 4;
+
+
     padding-left: 10px;
     width: 207px;
     height: 188px;
 }
 
-.appSubHeading{
+
+
+@keyframes hideLogo {
+    from {height: 188px; width: 207px}
+    to {height: 0px; width:10px}
+}
+
+
+.appNameLogoFadeOut {
+    /* grid-area: l; */
+
+    grid-column: span 4;
+
+    padding-left: 10px;
+    width: 207px;
+    height: 188px;
+    animation-name: hideLogo;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;  
+
+}
+
+
+
+.appSubHeading {
+    /* grid-area: s; */
+
+    grid-column: span 12;
+
     font-family: Segoe UI;
     font-size: 26px;
-    font-weight:500;
+    font-weight: 500;
     margin: 0px;
     color: #BCBCBC;
-    padding-top: 43px;
+    /* padding-top: 20px; */
     padding-left: 14px;
 }
 
+
+
+#controlder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    margin: 15px auto;
+    box-shadow: inset 0px 0px 10px 0px #bdbdbd;
+    border: 1px solid #c6c6c6;
+}
+
+#speaker {
+    width: 50px;
+    height: 5px;
+    border-radius: 15px;
+    background: #f2f2f2;
+    margin: 0px auto 15px;
+    box-shadow: inset 0px 0px 10px 0px #bdbdbd, inset 0px 5px 0px 0px #bdbdbd;
+    border: 1px solid #c6c6c6;
+}
