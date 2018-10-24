@@ -122,3 +122,14 @@
     margin-top: -95px;
     margin-left: 269px;
 } */
+
+.finalDisplayContainer{
+    grid-column: span 12;
+    grid-row: inherit;
+    
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+
+}

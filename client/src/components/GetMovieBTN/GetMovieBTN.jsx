@@ -36,11 +36,13 @@ const easyOnMeMode = decade => {
   })
 
 class GetMovieBTN extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       changeColor: false,
-      clicked: false
+      clicked: false,
+      changeMar:this.props.newMargin
     };
   }
 
@@ -49,55 +51,26 @@ class GetMovieBTN extends Component {
     if(this.props.decadeObject){
     this.props.loadMovie(page, this.props.decadeObject, movieIndex, this.props.finalGenreCode );
     }
-
   };
-  render() {
 
-    // let thecard;
-    // let backDropImg;
-    // let finalData=this.props.finalData
-
-    // if (finalData) {
-    //   let movieImg = "http://image.tmdb.org/t/p/original/" + finalData.poster_path;
-
-    //   backDropImg = {
-    //     backgroundImage: `url(http://image.tmdb.org/t/p/original/${
-    //       finalData.backdrop_path
-    //     })`,
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundSize: "cover"
-    //   };
-
-    //   thecard = (
-    //     <MovieCard
-    //       imgPath={movieImg}
-    //       title={finalData.title}
-    //       relDate={finalData.release_date}
-    //       overview={finalData.overview}
-    //     />
-    //   );
-    // } else {
-    //   thecard = "";
-    //   backDropImg = {};
-    // }
- 
-
-
+  render() { 
+    const {btnText} = this.props;
     return (
-      <div>
+      <React.Fragment>
         {this.props.decadeString ? (
-          <div>
-          <GetMovieBTNStyled primary onClick={this.getTheXmovie}>
-            X MOVIE
+          <React.Fragment>
+          <GetMovieBTNStyled  newMargin={this.state.changeMar} primary onClick={this.getTheXmovie}>
+            {btnText}
           </GetMovieBTNStyled>
-          </div>
+          </React.Fragment>
         ) : (
-          <GetMovieBTNStyled onClick={this.getTheXmovie}>
-          X MOVIE
+          <GetMovieBTNStyled  newMargin={this.state.changeMar} onClick={this.getTheXmovie}>
+          {btnText}
+
           </GetMovieBTNStyled>
         )}
-      </div>
-    );
+      </React.Fragment>
+    ); 
   }
 }
 

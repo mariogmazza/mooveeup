@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
+// import { Container } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
-import Radium, { StyleRoot } from "radium";
+import Radium from "radium";
 
 import {
   Link as ScrollLink,

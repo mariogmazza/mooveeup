@@ -48,11 +48,13 @@ function Navbar() {
         </RadiatingLink>
 
         <ScrollLink to="features" spy={true} smooth={true} duration={500}>
-          <NavA>Features</NavA>
+          {/* <NavA>Features</NavA> */}
+          Features
         </ScrollLink>
 
         <ScrollLink to="findus" spy={true} smooth={true} duration={500}>
-          <NavA>Find us</NavA>
+          {/* <NavA>Find us</NavA> */}
+          Find us
         </ScrollLink>
 
           

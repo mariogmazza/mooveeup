@@ -15,7 +15,8 @@ import {
   MovieDesCont,
   MovieYearCont,
   ReleaseTitle,
-  YearRelease
+  YearRelease,
+  MovieTitle
 } from "./FinalDisplayStyled";
 
 import ErrorMessage from "../../../components/Auth/ErrorMessage";
@@ -25,12 +26,12 @@ const mapState = state => ({
 });
 
 class FinalDisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      move: "34px"
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     move: "34px"
+  //   };
+  // }
 
   componentDidMount() {
     console.log(this.props.data);
@@ -41,6 +42,7 @@ class FinalDisplay extends Component {
     let backDropImg = BackdropPlaceHolder;
     let overView = data.overview;
     let releaseYear = data.release_date;
+    let titleMovie = data.title;
 
     console.log(releaseYear);
 
@@ -68,19 +70,21 @@ class FinalDisplay extends Component {
     // }
 
     return (
-      <div>
-        <LogoContainer>
-          <LogoSmall src={smallLogo} alt="Movie picker logo" />
-        </LogoContainer>
+      <div className="finalDisplayContainer">
+        {/* <LogoContainer> */}
+        <LogoSmall src={smallLogo} alt="Movie picker logo" />
+        {/* </LogoContainer> */}
 
         <SideMenu />
 
         <BackDropImg>
-          <img
-            src={backDropImg}
-            style={{ width: "100%", height: "100%" }}
-            alt="back drop"
-          />
+          <div style={{width:'280px', height:'172px'}}>
+            <img
+              src={backDropImg}
+              style={{ width: "100%", maxHeight: "172px" }}
+              alt="back drop"
+            />
+          </div>
         </BackDropImg>
 
         <PosterImg>
@@ -93,15 +97,17 @@ class FinalDisplay extends Component {
 
         <MovieYearCont>
           <ReleaseTitle>Release Year</ReleaseTitle>
-          <br />
+
           <YearRelease>{releaseYear.substring(0, 4)}</YearRelease>
         </MovieYearCont>
+
+        <MovieTitle>{titleMovie}</MovieTitle>
 
         <MovieDesCont>{overView}</MovieDesCont>
 
         <ErrorMessage />
 
-        <GetMovieBTN>NEW MOVIE</GetMovieBTN>
+        <GetMovieBTN newMargin={true} btnText={"NEW MOVIE"} />
       </div>
     );
   }

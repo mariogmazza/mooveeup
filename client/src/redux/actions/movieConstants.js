@@ -12,7 +12,7 @@ export const GET_RANDOM_MOVIE = "GET_RANDOM_MOVIE";
 
  export const GENRE_BTN_CLICKED = 'GENRE_BTN_CLICKED';
 
-
+export const DECADE_BTN_CLICKED = 'DECADE_BTN_CLICKED';
  
 
 

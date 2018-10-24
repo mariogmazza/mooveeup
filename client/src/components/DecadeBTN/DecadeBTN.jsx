@@ -4,10 +4,15 @@ import { GenBtn1, GenBtn2 } from "./DecadeStyled";
 import DecadeList from "../DecadeList/DecadeList";
 import DecadeList2 from "../DecadeList/DecadeList2";
 import { connect } from "react-redux";
+import { decadeBtnClicked } from '../../redux/actions/decadeAction'
 
 const mapState = state => ({
   chosenDecade: state.chosenDecadeString.data
 });
+
+const actions={
+  decadeBtnClicked
+}
 
 class DecadeBTN extends Component {
   constructor(props) {
@@ -18,6 +23,8 @@ class DecadeBTN extends Component {
   }
 
   handleOnClick = () => {
+    this.props.decadeBtnClicked(true);
+
     this.setState({ clicked: !this.state.clicked });
   };
 
@@ -28,7 +35,7 @@ class DecadeBTN extends Component {
         {clicked ? (
           <React.Fragment>
             <GenBtn2 onClick={this.handleOnClick}>DECADE</GenBtn2>
-            <span style={{ color: "rgb(172, 172, 172)" }}>{this.props.chosenDecade}</span>
+            {/* <span style={{ color: "rgb(172, 172, 172)" }}>{this.props.chosenDecade}</span> */}
             <DecadeList />
           </React.Fragment>
         ) : (
@@ -42,4 +49,4 @@ class DecadeBTN extends Component {
   }
 }
 
-export default connect(mapState)(DecadeBTN);
+export default connect(mapState, actions)(DecadeBTN);

@@ -16,10 +16,6 @@ const SelBTNstlye = styled.button`
   border-radius: 26px;
   margin-left: 98px;
   outline: none;
-  /* position: absolute; */
-  /* margin-top: -47px; */
 `;
-
-// C64747 new rojo
 
 export default SelBTNstlye;

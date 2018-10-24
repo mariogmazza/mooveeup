@@ -9,8 +9,10 @@ import getDecadeObjectReducer from "./getDecadeObjectReducer";
 import getDecadeStringReducer from "./getDecadeStringReducer";
 import errorReducer from './errorReducer';
 import authReducer from './authReducer';
-import genreBtnClickedReducer from './genreBtnClickedReducer'
+import genreBtnClickedReducer from './genreBtnClickedReducer';
+import decadeBtnClickedReducer from './decadeBtnClickedReducer';
 
+ 
 const rootReducer = combineReducers({
   moviePicked: getMovieReducer,
   genrePicked: getGenreCodeReducer,
@@ -20,7 +22,9 @@ const rootReducer = combineReducers({
   chosenDecadeString: getDecadeStringReducer,
   errorMsg: errorReducer,
   auth: authReducer,
-  genreBTNClicked:genreBtnClickedReducer
+  genreBTNClicked:genreBtnClickedReducer,
+  decadeBTNClicked: decadeBtnClickedReducer
+
 });
 
 export default rootReducer;

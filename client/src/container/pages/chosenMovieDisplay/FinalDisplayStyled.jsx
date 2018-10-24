@@ -1,83 +1,104 @@
 import styled from "styled-components";
 
-export const NewMovieBTN = styled.button`
-  font-family: Segoe UI;
-  font-size: 21px;
-  font-weight: bold;
-  width: 178px;
-  height: 55px;
-  background-color: #c64747;
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 26px;
-  margin-left: 122px;
-  margin-top: 50px;
-`;
+// export const NewMovieBTN = styled.button`
+//   font-family: Segoe UI;
+//   font-size: 21px;
+//   font-weight: bold;
+//   width: 178px;
+//   height: 55px;
+//   background-color: #c64747;
+//   color: white;
+//   border: none;
+//   outline: none;
+//   border-radius: 26px;
+//   margin-left: 122px;
+//   margin-top: 50px;
+// `;
 
 export const BackDropImg = styled.div`
-  width: 318px;
-  height: 212px;
-  background-color: green;
-  margin-left: 57px;
-  margin-top: -667px;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  background-color: #404854;
+  grid-row-start: 1;
+  grid-row-end: 3;
 `;
 
 export const PosterImg = styled.div`
-  width: 158px;
-  height: 199px;
+  width: 120px;
+  height: 148px;
   background-color: aqua;
   z-index: 300;
-  margin-top: -96px;
-  margin-left: 102px;
+  margin-top: -86px;
+  margin-left: 20px;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 5;
 `;
 
 export const LogoContainer = styled.div`
-  width: 130px;
-  height: 80px;
+  /* width: 130px; */
+  /* height: 80px; */
 `;
 
 export const LogoSmall = styled.img`
   position: absolute;
   margin-top: 20px;
-  margin-left: 15px;
+  margin-left: 20px;
   width: 82px;
   height: 66px;
   z-index: 10;
 `;
 
 export const MovieDesCont = styled.div`
-  width: 258px;
-    height: 185px;
-    margin-left: 87px;
-    margin-top: 50.8px;
-    font-family: Segoe UI;
-    font-size: 18px;
-    overflow: scroll;
-    color: #b6b6b7;
-    text-align: center;
+  grid-column-start: 3;
+  grid-column-end: 10;
+  grid-row-start: 6;
+  grid-row-end: 8;
+  width: 235px;
+  height: 118px; 
+  margin-left: 15px;
+  font-family: Segoe UI;
+  font-size: 12px;
+  overflow: scroll;
+  color: #b6b6b7;
+  text-align: center;
+`;
+
+export const MovieTitle = styled.div`
+  text-align: center;
+  color: #6f6f6f;
+  font-size: 13px;
+  display: inline;
+  grid-column-start: 2;
+  grid-column-end: 12; 
+  grid-row-start: 5;
+  grid-row-end: 6;
+  margin: 0px;
+  font-weight: bold;
 `;
 
 export const MovieYearCont = styled.div`
   width: 98px;
   height: 78px;
-  /* background-color: firebrick; */
-  margin-top: -95px;
-  margin-left: 269px;
+  margin-left: 148px;
+  grid-column-start: 4;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  grid-row-end: 5;
 `;
 
 export const ReleaseTitle = styled.span`
   font-family: Segoe UI;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  margin-left: 9px;
   color: #bcbcbc;
 `;
 
 export const YearRelease = styled.div`
   font-family: Segoe UI;
-  font-size: 43px;
+  font-size: 40px;
   font-weight: bold;
   color: #6f6f6f;
-  margin-top: 8px;
+  /* margin-top: 8px; */
 `;

@@ -1,32 +1,34 @@
 import styled from "styled-components";
 
+export const SideNav = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1 / 12;
 
-
-export const SideNav=styled.div` 
-    width: 57px;
-    height: 702px;
-    background-color: #070920;
-    margin-top: -114px;
+  display: grid;
+  /* grid-template-areas: */
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 100px auto;
+  background-color: #070920;
 `;
 
 export const MenuIcon = styled.img`
-    width: 28px;
-    height: 24.2px;
-    margin-top: 447.8px;
-    margin-left: 14px;
+  width: 28px;
+  height: 24px;
+  padding: 15px;
+  margin-top: 245px;
 `;
 
 export const SaveHeart = styled.img`
-    width: 34px;
-    height: 32px;
-    margin-top: 53px;
-    margin-left: 11px;
+  width: 34px;
+  height: 30px;
+  padding: 12px;
+  margin-top: 210px;
 `;
 
 export const BackBTN = styled.img`
-    width: 39px;
-    height: 36px;
-    margin-top: 50.6px;
-    margin-left: 9.4px;
-    margin-bottom: 24.1px;
+  width: 36px;
+  height: 33px;
+      padding: 12px;
+  margin-top: 205px;
 `;

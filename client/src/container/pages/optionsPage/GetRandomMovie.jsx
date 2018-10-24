@@ -7,15 +7,17 @@ import SelectBTN from "../../../components/SelectBTN/SelectBTN";
 import DecadeBTN from "../../../components/DecadeBTN/DecadeBTN";
 import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 import FinalDisplay from "../chosenMovieDisplay/FinalDisplay";
-import Navbar from "../../../components/NavBar/Navbar";
+// import Navbar from "../../../components/NavBar/Navbar";
 import MobileNavBar from "../../../components/MobileNavBar/MobileNavBar";
 
 const mapState = state => ({
   data: state.moviePicked.data,
   finalGenreCode: state.finalSelectedGenre.data,
   hideLogo: state.genreBTNClicked.data,
+  chosenDecade: state.chosenDecadeString.data,
+  chosenGenre: state.chosenGenreName.data,
+  hideXmovieBTN: state.decadeBTNClicked.data
 
-  chosenGenre: state.chosenGenreName.data
 });
 
 class GetRandomMovie extends Component {
@@ -26,19 +28,37 @@ class GetRandomMovie extends Component {
   render() {
     return (
       <div className="xContainer">
-        <div id="speaker" />
+        <div id="speaker"></div> 
 
         <div className="appContainer">
+
+
           {this.props.data ? (
             <FinalDisplay />
           ) : this.props.finalGenreCode ? (
-            <div>
+            <React.Fragment>
+
               <MobileNavBar />
-              {/* <img className="appNameLogo" src={LOGO} alt="Movie picker logo" /> */}
-              <h3 className="appSubHeading">Select by:</h3>
+
+               <h3 className="appSubHeading">
+                Select by:
+                <span
+                  style={{
+                    color: "rgb(172, 172, 172)",
+                    fontSize: "15px",
+                    marginLeft: "20px"
+                  }}
+                >
+                  {this.props.chosenDecade}
+                </span>
+              </h3>
+
+
               <DecadeBTN />
-              <GetMovieBTN />
-            </div>
+              {this.props.hideXmovieBTN ? <GetMovieBTN btnText={'X MOVIE'}/> : null}
+
+
+            </React.Fragment>
           ) : (
             <React.Fragment>
               <MobileNavBar />
@@ -76,8 +96,10 @@ class GetRandomMovie extends Component {
               {this.props.hideLogo ? <SelectBTN /> : null}
             </React.Fragment>
           )}
+
+
         </div>
-        <div id="controlder" />
+        <div id="controlder"> </div>
       </div>
     );
   }

@@ -41,7 +41,7 @@ class SideMenu extends Component {
         return <Redirect to='/' />
       }
     return (
-      <div>
+      <React.Fragment>
         <SideNav>
           <MenuIcon src={menuIcon} alt="menu Icon" />
           <SaveHeart src={heartIcon} alt="save button" />
@@ -51,7 +51,7 @@ class SideMenu extends Component {
             alt="back button"
           />
         </SideNav>
-      </div>
+      </React.Fragment>
     );
   }
 }
