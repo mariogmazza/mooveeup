@@ -1,27 +1,55 @@
-import React from 'react'
-import {MobNavDiv, BurgerIconMob, IconImg, NavA} from './StyledMobileNavBar'
+import React, { Component } from "react";
+import { MobNavDiv, BurgerIconMob, IconImg, NavA } from "./StyledMobileNavBar";
 import BurgerMenuImg from "../../assets/img/burgerMenu.png";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const mapState=state=>({
-    showLogo: state.genreBTNClicked.data
-}); 
+import SlidePanelMenu from "./SlidePanelMenu";
+import { openSideMenu } from '../../redux/actions/sideMenuAction'
 
-function MobileNavBar({showLogo}) {
-  return (
-    <MobNavDiv>
-        {!showLogo ?
-        (
-            null
-        ):(
-        <NavA><span style={{color:'#C64747'}}>X</span>MOVIE</NavA> 
+const mapState = state => ({
+  showLogo: state.genreBTNClicked.data,
+  isOpen: state.openMenu.data
+});
 
-        )}
-      <BurgerIconMob>
-          <IconImg src={BurgerMenuImg} />
-        </BurgerIconMob>
-    </MobNavDiv>
-  )
+const actions={
+  openSideMenu
+ }
+
+class MobileNavBar extends Component {
+
+  handleOpenMenu =()=> {
+    this.props.openSideMenu(true);
+  }
+
+  render() {
+    const { showLogo } = this.props;
+    return (
+      <React.Fragment>
+        <MobNavDiv>
+          {!showLogo ? null : (
+            <Link to="/">
+              <NavA>
+                <span style={{ color: "#C64747" }}>X</span>
+                MOVIE
+              </NavA>
+            </Link>
+          )}
+
+          <BurgerIconMob onClick={this.handleOpenMenu}>
+            <IconImg src={BurgerMenuImg} />
+          </BurgerIconMob>
+        </MobNavDiv>
+
+
+        {this.props.isOpen ? (
+          <SlidePanelMenu />
+        ) : null}
+
+
+      </React.Fragment>
+    );
+  }
 }
 
-export default connect(mapState)(MobileNavBar)
+export default connect(mapState, actions)(MobileNavBar);

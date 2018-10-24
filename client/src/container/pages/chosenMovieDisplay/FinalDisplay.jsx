@@ -10,7 +10,7 @@ import PosterPlaceHolder from "../../../assets/img/nCage_placeholder.jpg";
 import {
   BackDropImg,
   PosterImg,
-  LogoContainer,
+  // LogoContainer,
   LogoSmall,
   MovieDesCont,
   MovieYearCont,
@@ -56,32 +56,17 @@ class FinalDisplay extends Component {
         }`;
       }
     }
-    // thecard = (
-    //   <MovieCard
-    //     imgPath={movieImg}
-    //     title={data.title}
-    //     relDate={data.release_date}
-    //     overview={data.overview}
-    //   />
-    // );
-    // } else {
-    //   thecard = "";
-    //   backDropImg = {};
-    // }
 
     return (
       <div className="finalDisplayContainer">
-        {/* <LogoContainer> */}
         <LogoSmall src={smallLogo} alt="Movie picker logo" />
-        {/* </LogoContainer> */}
-
         <SideMenu />
 
         <BackDropImg>
           <div style={{width:'280px', height:'172px'}}>
             <img
               src={backDropImg}
-              style={{ width: "100%", maxHeight: "172px" }}
+              style={{ width: "100%", height: "100%" }}
               alt="back drop"
             />
           </div>

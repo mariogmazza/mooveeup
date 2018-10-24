@@ -7,7 +7,6 @@ import SelectBTN from "../../../components/SelectBTN/SelectBTN";
 import DecadeBTN from "../../../components/DecadeBTN/DecadeBTN";
 import GetMovieBTN from "../../../components/GetMovieBTN/GetMovieBTN";
 import FinalDisplay from "../chosenMovieDisplay/FinalDisplay";
-// import Navbar from "../../../components/NavBar/Navbar";
 import MobileNavBar from "../../../components/MobileNavBar/MobileNavBar";
 
 const mapState = state => ({
@@ -32,9 +31,9 @@ class GetRandomMovie extends Component {
 
         <div className="appContainer">
 
-
           {this.props.data ? (
             <FinalDisplay />
+
           ) : this.props.finalGenreCode ? (
             <React.Fragment>
 

@@ -11,6 +11,9 @@ import HomePage from '../container/pages/HomePage/HomePage';
 import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
 
 
+import SlidePanelMenu from '../components/MobileNavBar/SlidePanelMenu'
+ 
+
 const store = configureStore();
 
 if(localStorage.jwtToken){
@@ -36,6 +39,10 @@ const App = ({auth}) => {
           <Route exact path='/login' render={()=><AuthPage authType='login' isAuthenticated={auth.isAuthenticated}  />} />
           <Route exact path='/register' render={()=><AuthPage authType='register' isAuthenticated={auth.isAuthenticated} />} />
           <Route exact path='/xmovieweb' component={GetRandomMovie} />
+
+
+          <Route exact path='/slide' component={SlidePanelMenu} />
+
 
         </Switch>
     );

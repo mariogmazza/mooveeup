@@ -11,6 +11,7 @@ import errorReducer from './errorReducer';
 import authReducer from './authReducer';
 import genreBtnClickedReducer from './genreBtnClickedReducer';
 import decadeBtnClickedReducer from './decadeBtnClickedReducer';
+import sideMenuReducer from './sideMenuReducer'
 
  
 const rootReducer = combineReducers({
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   errorMsg: errorReducer,
   auth: authReducer,
   genreBTNClicked:genreBtnClickedReducer,
-  decadeBTNClicked: decadeBtnClickedReducer
+  decadeBTNClicked: decadeBtnClickedReducer,
+  openMenu: sideMenuReducer 
 
 });
 
