@@ -12,7 +12,7 @@ import {
   movieDecadeString
 } from "../../redux/actions/decadeAction";
 
-import { logout } from '../../redux/actions/authAction'
+import { logout } from "../../redux/actions/authAction";
 
 const mapState = state => ({
   isOpen: state.openMenu.data,
@@ -39,7 +39,7 @@ class SlidePanelMenu extends Component {
   handleClose = () => {
     // this.myRef.current.style.width = "0";
     this.props.closeSideMenu(false);
-    console.log(this.props.auth)
+    console.log(this.props.auth);
   };
 
   handleHomeLink = () => {
@@ -73,14 +73,13 @@ class SlidePanelMenu extends Component {
       <React.Fragment>
         {this.props.isOpen ? (
           <div style={{ width: "80%" }} className="sidepanel">
-          
             <a className="closebtn" onClick={this.handleClose}>
               ×
             </a>
 
             {this.props.auth.isAuthenticated ? (
               <a>Hi! {this.props.auth.user.username}</a>
-            ):(null)}
+            ) : null}
 
             <a>
               <Link to="/xmovieweb" onClick={this.handleHomeLink}>
@@ -89,9 +88,16 @@ class SlidePanelMenu extends Component {
             </a>
 
             {this.props.auth.isAuthenticated ? (
-              <a onClick={this.props.logout}>
-               Logout 
-              </a>
+              <React.Fragment>
+                <a>
+                  <Link to="/watched">Watched List</Link>
+                </a>
+                <a>
+                  <Link to="/wishlist">WishList</Link>
+                </a>
+                <a onClick={this.props.logout}>Logout</a>
+
+              </React.Fragment>
             ) : (
               <React.Fragment>
                 <a>

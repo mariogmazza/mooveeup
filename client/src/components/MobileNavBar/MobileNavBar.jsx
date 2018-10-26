@@ -28,7 +28,7 @@ class MobileNavBar extends Component {
       <React.Fragment>
         <MobNavDiv>
           {!showLogo ? null : (
-            <Link to="/">
+            <Link to="/"> 
               <NavA>
                 <span style={{ color: "#C64747" }}>X</span>
                 MOVIE

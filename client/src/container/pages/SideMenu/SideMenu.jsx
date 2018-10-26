@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
-import { SideNav, MenuIcon, SaveHeart, BackBTN } from "./SideMenuStyled";
+import { SideNav, MenuIcon, SaveHeart, BackBTN, WatchedIcon } from "./SideMenuStyled";
+
 import menuIcon from "../../../assets/img/menuItem_white.png";
 import heartIcon from "../../../assets/img/heartIcon.png";
 import backBtnIcon from "../../../assets/img/backBTN.png";
+import eyeIcon  from '../../../assets/img/eye.png'
 import { connect } from "react-redux";
 import { changeMovie } from "../../../redux/actions/getMovieAction";
 import { movieGenre, movieGenreName } from "../../../redux/actions/genreAction";
 import { changePageDecade } from "../../../redux/actions/selectBtnAction";
-import {
-  movieDecadeObject,
-  movieDecadeString
-} from "../../../redux/actions/decadeAction";
+import { movieDecadeObject, movieDecadeString } from "../../../redux/actions/decadeAction";
 import { openSideMenu } from "../../../redux/actions/sideMenuAction";
 import SlidePanelMenu from '../../../components/MobileNavBar/SlidePanelMenu'
 
@@ -61,12 +60,15 @@ class SideMenu extends Component {
             src={menuIcon}
             alt="menu Icon"
           />
+          <WatchedIcon src={eyeIcon}/>
+ 
           <SaveHeart src={heartIcon} alt="save button" />
           <BackBTN
             onClick={this.handleBackBTN}
             src={backBtnIcon}
             alt="back button"
           />
+
         </SideNav>
 
         {this.props.isOpen ? (

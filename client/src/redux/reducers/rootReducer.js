@@ -1,6 +1,4 @@
-import {
-  combineReducers
-} from "redux";
+import { combineReducers } from "redux";
 import getMovieReducer from "./getMovieReducer";
 import getGenreCodeReducer from './getGenreCodeReducer'
 import getGenreNameReducer from './getGenreNameReducer'
@@ -11,9 +9,10 @@ import errorReducer from './errorReducer';
 import authReducer from './authReducer';
 import genreBtnClickedReducer from './genreBtnClickedReducer';
 import decadeBtnClickedReducer from './decadeBtnClickedReducer';
-import sideMenuReducer from './sideMenuReducer'
+import sideMenuReducer from './sideMenuReducer';
+import { watchedMovies, currentWatchedMovie } from './watchedMovieReducer';
 
- 
+
 const rootReducer = combineReducers({
   moviePicked: getMovieReducer,
   genrePicked: getGenreCodeReducer,
@@ -23,9 +22,11 @@ const rootReducer = combineReducers({
   chosenDecadeString: getDecadeStringReducer,
   errorMsg: errorReducer,
   auth: authReducer,
-  genreBTNClicked:genreBtnClickedReducer,
+  genreBTNClicked: genreBtnClickedReducer,
   decadeBTNClicked: decadeBtnClickedReducer,
-  openMenu: sideMenuReducer 
+  openMenu: sideMenuReducer,
+  watchedMovies,
+  currentWatchedMovie
 
 });
 

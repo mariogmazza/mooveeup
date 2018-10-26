@@ -8,10 +8,10 @@ router
     .post(auth, handle.saveWatchedBy);
 
 router
-    .route('/user') 
-    .get( auth, handle.showUserWatched); 
+    .route('/user')
+    .get(auth, handle.showUserWatched);
 
-    router
+router
     .route('/:id')
     .get(handle.getMovieWatched)
     .delete(auth, handle.deleteFromWatched)

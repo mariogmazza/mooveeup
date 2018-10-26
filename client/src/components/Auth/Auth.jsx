@@ -4,7 +4,7 @@ import logoWhite from "../../assets/img/NewLogoXmovie_White.png";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { authUser, logout } from "../../redux/actions/authAction";
+import { authUser } from "../../redux/actions/authAction";
 import { closeSideMenu } from '../../redux/actions/sideMenuAction'
 
 import ErrorMessage from "./ErrorMessage";
@@ -13,7 +13,6 @@ const mapState = state => ({});
 
 const actions = {
   authUser,
-  logout,
   closeSideMenu
 };
 
