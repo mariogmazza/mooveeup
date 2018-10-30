@@ -22,6 +22,7 @@ exports.showUserWatched = async (req, res, next) => {
 exports.saveWatchedBy = async (req, res, next) => {
     const { id } = req.token;
 
+
     const {
         title,
         overview,
@@ -40,7 +41,12 @@ exports.saveWatchedBy = async (req, res, next) => {
             "title": title
         })
 
-        if (typeof movieExist[0]._id === "undefined") {
+        console.log('pepe')
+        // console.log( (typeof movieExist[0]) );  
+
+
+        if (typeof movieExist[0] === "undefined") {
+
             console.log("i dont exist in the database")
 
             const movie = await db.Movie.create({
@@ -53,7 +59,7 @@ exports.saveWatchedBy = async (req, res, next) => {
                 genre_ids
             });
 
-            user.whatchedBy.push(movie._id);
+            user.watchedBy.push(movie._id);
             await user.save();
 
             return res.status(201).json({ ...movie._doc,

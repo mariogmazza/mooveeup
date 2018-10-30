@@ -102,7 +102,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 500px auto 26px auto;
+    grid-template-rows: 600px auto 26px auto;
     grid-template-areas:
         ". . . . . . . . . . c ."
         ". . . . h h h h h h h ."

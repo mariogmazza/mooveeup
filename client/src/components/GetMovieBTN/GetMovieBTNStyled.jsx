@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
  const GetMovieBTNStyled = styled.button`
-    grid-column: span 12;
+    grid-column: span 11;
     grid-row: 8 / 12; 
 
     font-family: Segoe UI;

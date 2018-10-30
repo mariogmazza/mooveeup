@@ -15,14 +15,6 @@ const selectedDecade = val => {
   let day = n.substring(8, 10);
   const  year = n.substring(0,4)
 
-  // if (month <= 9) {
-  //   month = "0" + month;
-  // }
-
-  // if (day <= 9) {
-  //   day = "0" + day;
-  // }
-
   const presentDate = year + "-" + month + "-" + day;
   console.log(presentDate)
 

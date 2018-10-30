@@ -1,27 +1,58 @@
 import { GET_RANDOM_MOVIE } from "./movieConstants";
-import axios from "axios";
-require('dotenv').config();
+// import axios from "axios";
+import { addError, removeError } from "./errorAction";
+import api from "../../services/api";
+
+
+export const changeMovie =(newMovie)=>({
+  type: GET_RANDOM_MOVIE,
+  data: newMovie
+});
+
 
 
 
 export const loadMovie = (page, decade, pickedPage, genre) => {
-  return dispatch => {
-    return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${
-      // process.env.REACT_APP_API_KEY
-      'b2ce9d552430f16ed8460e3dce54ba4e'
-    }&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&primary_release_date.gte=${
-      decade.start
-    }&primary_release_date.lte=${
-      decade.end
-    }&vote_average.gte=6&with_genres=${genre}`)
-    .then(res =>  dispatch(changeMovie(res.data.results[pickedPage]))
-    );
-  };
+
+  const data = {page, decade, pickedPage, genre};
+
+  return async dispatch => {
+    try {
+      const  {...movieObj} = await api.call('post','getmovie/', data);
+      console.log(movieObj)
+
+        dispatch(changeMovie(movieObj)) 
+        dispatch(removeError())
+    } catch (err) {
+      const error  = err.message;
+      dispatch(addError(error));
+    }
+
+  }
 };
 
-export const changeMovie=(newMovie)=>{
-  return {
-    type: GET_RANDOM_MOVIE,
-    data: newMovie  
-  }
-}
+
+
+
+ 
+// export const authUser = (path, data) => {
+//   return async dispatch => {
+//     try {
+//       const { token, ...user } = await api.call('post', `auth/${path}`, data);
+//       localStorage.setItem('jwtToken', token);
+//       api.setToken(token);
+//       dispatch(setCurrentUser(user));
+//       dispatch(removeError());
+//     } catch (err) {
+//       const { error } = err.response.data;
+//       dispatch(addError(error));
+//     }
+//   };
+// };
+
+// export const changeMovie = newMovie => {
+//   return {
+//     type: GET_RANDOM_MOVIE,
+//     data: newMovie
+//   };
+// };

@@ -24,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/auth', routes.auth);
 app.use('/api/watched', routes.movieWatched);
 app.use('/api/wished', routes.movieWishlist);
+app.use('/api/getmovie', routes.getMovieRoute);
+
 
 
 

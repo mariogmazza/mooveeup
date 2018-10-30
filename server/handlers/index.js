@@ -1,7 +1,8 @@
 module.exports = {
     ...require('./auth'),
     ...require('./moviesWishlist'),
-    ...require('./moviesWatched')
+    ...require('./moviesWatched'),
+    ...require('./getRandomMovie')
 }
 
 module.exports.errors = (err, req, res, next) => {
@@ -17,5 +18,5 @@ module.exports.notFound = (req, res, next) => {
     const err = new Error("Not found");
     err.status = 404;
 
-    next(err);
+    next(err); 
 }

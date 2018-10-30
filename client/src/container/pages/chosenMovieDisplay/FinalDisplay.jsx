@@ -26,18 +26,25 @@ const mapState = state => ({
 });
 
 class FinalDisplay extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     move: "34px"
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      move: "34px"
+    };
+  }
 
   componentDidMount() {
-    console.log(this.props.data);
+    // console.log(this.props.data);
   }
+
   render() {
+
     const { data } = this.props;
+
+    // const data = this.props.data[0];
+
+    console.log(data)
+
     let moviePoster = PosterPlaceHolder;
     let backDropImg = BackdropPlaceHolder;
     let overView = data.overview;
@@ -58,7 +65,9 @@ class FinalDisplay extends Component {
     }
 
     return (
+    
       <div className="finalDisplayContainer">
+    
         <LogoSmall src={smallLogo} alt="Movie picker logo" />
         <SideMenu />
 

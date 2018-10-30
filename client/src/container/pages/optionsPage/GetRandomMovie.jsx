@@ -16,7 +16,6 @@ const mapState = state => ({
   chosenDecade: state.chosenDecadeString.data,
   chosenGenre: state.chosenGenreName.data,
   hideXmovieBTN: state.decadeBTNClicked.data
-
 });
 
 class GetRandomMovie extends Component {
@@ -27,19 +26,20 @@ class GetRandomMovie extends Component {
   render() {
     return (
       <div className="xContainer">
-        <div id="speaker"></div> 
+        <div id="speaker" />
 
         <div className="appContainer">
-
           {this.props.data ? (
+            
             <FinalDisplay />
 
           ) : this.props.finalGenreCode ? (
+
             <React.Fragment>
 
               <MobileNavBar />
 
-               <h3 className="appSubHeading">
+              <h3 className="appSubHeading">
                 Select by:
                 <span
                   style={{
@@ -51,15 +51,14 @@ class GetRandomMovie extends Component {
                   {this.props.chosenDecade}
                 </span>
               </h3>
-
-
               <DecadeBTN />
-              {this.props.hideXmovieBTN ? <GetMovieBTN btnText={'X MOVIE'}/> : null}
-
-
+              {this.props.hideXmovieBTN ? (
+                <GetMovieBTN btnText={"X MOVIE"} />
+              ) : null}
             </React.Fragment>
           ) : (
             <React.Fragment>
+
               <MobileNavBar />
 
               {this.props.hideLogo ? (
@@ -95,8 +94,6 @@ class GetRandomMovie extends Component {
               {this.props.hideLogo ? <SelectBTN /> : null}
             </React.Fragment>
           )}
-
-
         </div>
         <div id="controlder"> </div>
       </div>
