@@ -45,14 +45,12 @@ class AllWatchedMovies extends Component {
 
   handleDelete(id) {
     const { history, deleteWatched } = this.props;
-    console.log(this.props);
     deleteWatched(id);
 
     history.push("/xmovieweb");
   }
 
   render() {
-    console.log(this.props.allMovies.length)
 
     let watched='';
 

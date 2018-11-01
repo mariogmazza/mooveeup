@@ -49,9 +49,6 @@ class AllWishlistMovies extends Component {
 
   render() {
 
-    console.log(this.props.allUserWishedMovies)
-
-    
     let wished='';
     
     if( this.props.allUserWishedMovies.length > 0 ){

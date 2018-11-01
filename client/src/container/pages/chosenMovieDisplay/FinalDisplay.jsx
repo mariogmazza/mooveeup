@@ -10,7 +10,6 @@ import PosterPlaceHolder from "../../../assets/img/nCage_placeholder.jpg";
 import {
   BackDropImg,
   PosterImg,
-  // LogoContainer,
   LogoSmall,
   MovieDesCont,
   MovieYearCont,
@@ -42,8 +41,6 @@ class FinalDisplay extends Component {
     let overView = data.overview;
     let releaseYear = data.release_date;
     let titleMovie = data.title;
-
-    console.log(releaseYear);
 
     if (data) {
       if (data.poster_path) {

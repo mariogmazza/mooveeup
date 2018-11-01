@@ -5,7 +5,7 @@ import { loadMovie } from "../../redux/actions/getMovieAction";
 // import MovieCard from '../MovieCard'
 
 const easyOnMeMode = decade => {
-  console.log("this is easyMode " + decade);
+  // console.log("this is easyMode " + decade);
   let page = 1;
   let pageLimit = 10;
   let movieIndex = 0;
@@ -18,7 +18,7 @@ const easyOnMeMode = decade => {
     maxMovieIndex = 10;
   }
   movieIndex = Math.floor(Math.random() * maxMovieIndex + 1);
-  console.log("pages: " + page + " movieIndex: " + movieIndex);
+  // console.log("pages: " + page + " movieIndex: " + movieIndex);
   return { page, movieIndex };
 };
 
@@ -86,5 +86,3 @@ export default connect(
   mapState,
   actions
 )(GetMovieBTN);
-
-// export default GetMovieBTN

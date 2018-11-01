@@ -35,11 +35,9 @@ class SlidePanelMenu extends Component {
   handleClose = () => {
     // this.myRef.current.style.width = "0";
     this.props.closeSideMenu(false);
-    console.log(this.props.auth);
   };
 
   handleHomeLink = () => {
-    console.log("HOME BUTTON");
 
     this.props.closeSideMenu(false);
     this.props.changeMovie("");

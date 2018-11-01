@@ -18,7 +18,6 @@ export const loadMovie = (page, decade, pickedPage, genre) => {
   return async dispatch => {
     try {
       const  {...movieObj} = await api.call('post','getmovie/', data);
-      console.log(movieObj)
 
         dispatch(changeMovie(movieObj)) 
         dispatch(removeError())

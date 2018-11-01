@@ -16,7 +16,6 @@ const selectedDecade = val => {
   const  year = n.substring(0,4)
 
   const presentDate = year + "-" + month + "-" + day;
-  console.log(presentDate)
 
   if (val === "90") {
     return { start: "1990-01-01", end: "1999-12-31" };

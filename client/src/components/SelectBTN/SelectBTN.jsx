@@ -21,8 +21,6 @@ class SelectBTN extends Component {
   }
 
   submmitGenre = () => {
-    console.log(this.props.pickedGenre);
-
     this.props.changePageDecade(this.props.pickedGenre);
   };
 

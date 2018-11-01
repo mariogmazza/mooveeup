@@ -19,7 +19,7 @@ const mapState = state => ({
   isOpen: state.openMenu.data, 
   currMovie: state.moviePicked.data
 });
-
+   
 const actions = {
   changeMovie,
   movieGenre,
@@ -37,7 +37,6 @@ class SideMenu extends Component {
     toGenrePage: false
   };
   handleBackBTN = () => {
-    console.log("BACK BUTTON");
 
     this.props.changeMovie("");
     this.props.movieGenre("");
@@ -60,7 +59,6 @@ class SideMenu extends Component {
   } 
 
   render() {
-    console.log(this.state.toGenrePage);
     if (this.state.toGenrePage === true) {
       return <Redirect to="/" />;
     }
