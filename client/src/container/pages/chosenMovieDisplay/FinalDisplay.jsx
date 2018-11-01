@@ -33,17 +33,9 @@ class FinalDisplay extends Component {
     };
   }
 
-  componentDidMount() {
-    // console.log(this.props.data);
-  }
-
   render() {
 
     const { data } = this.props;
-
-    // const data = this.props.data[0];
-
-    console.log(data)
 
     let moviePoster = PosterPlaceHolder;
     let backDropImg = BackdropPlaceHolder;

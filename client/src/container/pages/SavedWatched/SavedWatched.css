@@ -1,0 +1,45 @@
+.Save_Container {
+    width: 340px;
+    height: 480px;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    padding: 20px 5px 100px 5px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px 0px #ccc;
+}
+
+#Save_speaker {
+    width: 50px;
+    height: 5px;
+    border-radius: 15px;
+    background: #f2f2f2;
+    margin: 0px auto 15px;
+    box-shadow: inset 0px 0px 10px 0px #bdbdbd, inset 0px 5px 0px 0px #bdbdbd;
+    border: 1px solid #c6c6c6;
+}
+
+
+#Save_controlder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    margin: 15px auto;
+    box-shadow: inset 0px 0px 10px 0px #bdbdbd;
+    border: 1px solid #c6c6c6;
+}
+
+
+.Save_AppContainer {
+    height: 100%;
+    background-color: rgb(64, 72, 84);
+    border: none;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+
+}

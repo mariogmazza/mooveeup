@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { SideNav, MenuIcon, SaveHeart, BackBTN, WatchedIcon } from "./SideMenuStyled";
-
 import menuIcon from "../../../assets/img/menuItem_white.png";
 import heartIcon from "../../../assets/img/heartIcon.png";
 import backBtnIcon from "../../../assets/img/backBTN.png";

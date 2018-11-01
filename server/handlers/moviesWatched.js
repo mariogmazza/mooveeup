@@ -20,8 +20,8 @@ exports.showUserWatched = async (req, res, next) => {
 }
 
 exports.saveWatchedBy = async (req, res, next) => {
+    
     const { id } = req.token;
-
 
     const {
         title,
@@ -68,12 +68,6 @@ exports.saveWatchedBy = async (req, res, next) => {
         }
 
         console.log("I exist on the database watched");
-
-        // const userWatchedList = await user.find({'watchedBy': movieExist[0]._id})
-        // console.log('im the closest')
-        // console.log(userWatchedList)
-
-        // user.watchedBy.push(movieExist[0]._id);   
 
         user.update(
             { $addToSet: { watchedBy: movieExist[0]._id  } }

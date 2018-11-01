@@ -26,7 +26,7 @@ const FlipCard = ({title, image, openCard, deleteCard, overview }) => {
           <div className="flip-card-back">
             <h1>{title}</h1>
             <p>{overview}</p>
-            <button className='btn_flip_open' onClick={openCard}>open</button>
+            {/* <button className='btn_flip_open' onClick={openCard}>open</button> */}
 
             <button className='btn_flip_delete' onClick={deleteCard}>delete</button>
           </div>

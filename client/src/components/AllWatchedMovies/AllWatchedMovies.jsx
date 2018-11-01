@@ -3,6 +3,7 @@ import FlipCard from "../FlipCard/FlipCard";
 import { getAllWatched, getCurrentWatched, deleteWatched } from "../../redux/actions/watchedMovieAction";
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
+import './AllWatchedMovies.css'
 
 
 
@@ -68,12 +69,17 @@ class AllWatchedMovies extends Component {
       )); 
 
     }else{
-      return <h1>Sorry there's nothing here to see!</h1>
+      return <h3>Sorry there's nothing here to see!</h3>
      }
 
 
     return (
-      <React.Fragment><ul>{watched}</ul></React.Fragment>
+      <React.Fragment>
+        <ul className='Flip_List'>
+        {watched}
+        </ul>
+        <br/>
+        </React.Fragment>
     );
   }
 }

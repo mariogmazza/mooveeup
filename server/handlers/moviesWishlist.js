@@ -65,11 +65,6 @@ exports.saveWishedListed = async (req, res, next) => {
         }
 
         console.log("I exist on the database wishedlist")
-        // console.log(movieExist[0]._id);
-        // const userWatchedList = await user.find({'wishedListedBy': [movieExist[0]._id]})
-        // console.log(userWatchedList); 
-
-        // user.wishedListedBy.push(movieExist[0]._id);
 
         user.update(
             { $addToSet: { wishedListedBy: movieExist[0]._id  } } 

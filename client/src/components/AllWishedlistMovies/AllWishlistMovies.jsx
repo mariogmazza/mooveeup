@@ -68,13 +68,15 @@ class AllWishlistMovies extends Component {
       )); 
 
     }else{
-      return <h1>Sorry there's nothing here to see!</h1>
+      return <h3>Sorry there's nothing here to see!</h3>
      }
 
 
     return (
       <React.Fragment>
-        <ul>{wished}</ul>
+        <ul className='Flip_List'>
+        {wished}
+        </ul>
       </React.Fragment>
     );
   }
