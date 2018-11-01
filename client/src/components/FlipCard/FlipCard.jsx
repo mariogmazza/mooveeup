@@ -1,7 +1,16 @@
 import React from "react";
 import "./FlipCard.css";
 
-const FlipCard = ({title, image, openCard, deleteCard }) => {
+import PosterPlaceHolder from "../../assets/img/nCage_placeholder.jpg";
+
+const FlipCard = ({title, image, openCard, deleteCard, overview }) => {
+
+  let moviePoster = PosterPlaceHolder;
+
+  if (image) {
+      moviePoster = `http://image.tmdb.org/t/p/original/${image}`;
+    }
+  
 
   return (
     <React.Fragment>
@@ -9,17 +18,17 @@ const FlipCard = ({title, image, openCard, deleteCard }) => {
         <div className="flip-card-inner">
           <div className="flip-card-front">
             <img
-              src={image}
-              alt="Avatar"
-              style={{maxWidth:'300px',maxHeight:'300px'}}
+              src={moviePoster}
+              alt="Poster"
+              style={{maxWidth:'100%',maxHeight:'100%'}}
             />
           </div>
           <div className="flip-card-back">
             <h1>{title}</h1>
-            <button onClick={openCard}>open</button>
-            <button >delete</button>
+            <p>{overview}</p>
+            <button className='btn_flip_open' onClick={openCard}>open</button>
 
-            {/* <button onClick={deleteCard}>delete</button> */}
+            <button className='btn_flip_delete' onClick={deleteCard}>delete</button>
           </div>
         </div>
       </div>

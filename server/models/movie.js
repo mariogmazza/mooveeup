@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
-    title: String,
+    title: {
+        type:String,
+        unique:true
+    },
     overview: String,
     release_date: String,
     backdrop_path: String,

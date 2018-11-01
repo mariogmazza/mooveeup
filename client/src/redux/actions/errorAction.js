@@ -1,7 +1,4 @@
-import {
-    ADD_ERROR,
-    REMOVE_ERROR,
-} from './movieConstants';
+import { ADD_ERROR, REMOVE_ERROR } from './movieConstants';
 
 export const addError = error => {
     return {

@@ -37,4 +37,44 @@
     color: white;
     transform: rotateY(180deg);
     z-index: 1;
+    overflow: scroll;
   }
+
+  .btn_flip_open {
+    background-color: rgb(84, 124, 73);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn_flip_open:hover {
+    background-color: #96ad8b;
+    color: rgb(88, 88, 88);
+    font-weight: bold;
+}
+
+
+.btn_flip_delete {
+  background-color: rgb(197, 55, 55);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.btn_flip_delete:hover {
+  background-color: #b65d5d;
+  color: rgb(88, 88, 88);
+  font-weight: bold;
+}

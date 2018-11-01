@@ -1,4 +1,4 @@
-import { SET_ALL_WATCHED_MOVIES, SET_CURRENT_WATCHED_MOVIE } from '../actions/movieConstants';
+import { SET_ALL_WATCHED_MOVIES, SET_CURRENT_WATCHED_MOVIE, DELETE_MOVIE_FROM_WATCHEDLIST } from '../actions/movieConstants';
 import { addError, removeError } from './errorAction';  
 import api from '../../../src/services/api';
 
@@ -13,6 +13,11 @@ export const setCurrentWatched= watched=>({
     type:SET_CURRENT_WATCHED_MOVIE,
     data:watched
 });
+
+export const deletedWatchedMovie=(deletedMsg)=>({
+    type: DELETE_MOVIE_FROM_WATCHEDLIST,
+    deletedMsg
+})
 
 
 export const getAllWatched=()=>{
@@ -50,6 +55,19 @@ export const getCurrentWatched=(id)=>{
             dispatch(setCurrentWatched(watchedMovie));
             dispatch(removeError());
 
+        } catch (err) {
+            const error = err.response.data;
+            dispatch(addError(error.message));
+        }
+    }
+}
+
+export const deleteWatched=(id)=>{
+    return async dispatch=>{
+        try {
+            const deleteAction = await api.call('delete',`watched/${id}`);
+            dispatch(deletedWatchedMovie(deleteAction));
+            dispatch(removeError());
         } catch (err) {
             const error = err.response.data;
             dispatch(addError(error.message));

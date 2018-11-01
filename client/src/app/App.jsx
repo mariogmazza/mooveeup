@@ -14,7 +14,7 @@ import GetRandomMovie from '../container/pages/optionsPage/GetRandomMovie';
 
 
 // import SlidePanelMenu from '../components/MobileNavBar/SlidePanelMenu'
-import AllWatchedMovies from '../components/AllWatchedMovies/AllWatchedMovies';
+// import AllWatchedMovies from '../components/AllWatchedMovies/AllWatchedMovies';
  
 
 // const store = configureStore();
@@ -43,11 +43,8 @@ const App = ({auth}) => {
           <Route exact path='/register' render={()=><AuthPage authType='register' isAuthenticated={auth.isAuthenticated} />} />
           <Route exact path='/xmovieweb' component={GetRandomMovie} />
 
-
-          {/* <Route exact path='/slide' component={SlidePanelMenu} /> */}
-          <Route exact path='/test' component={AllWatchedMovies} />
-
-
+          <Route exact path='/watched' render={()=><AuthPage  route='watched' authType='' isAuthenticated={auth.isAuthenticated} />} />
+          <Route exact path='/wishlist' render={()=><AuthPage  route='wished' authType='' isAuthenticated={auth.isAuthenticated} />} />
 
         </Switch>
     );

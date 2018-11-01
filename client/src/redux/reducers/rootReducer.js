@@ -11,8 +11,9 @@ import genreBtnClickedReducer from './genreBtnClickedReducer';
 import decadeBtnClickedReducer from './decadeBtnClickedReducer';
 import sideMenuReducer from './sideMenuReducer';
 import { watchedMovies, currentWatchedMovie } from './watchedMovieReducer';
+import { wishedMovies, currentWishedMovie } from './wishedMovieReducer';
 
-
+ 
 const rootReducer = combineReducers({
   moviePicked: getMovieReducer,
   genrePicked: getGenreCodeReducer,
@@ -26,7 +27,9 @@ const rootReducer = combineReducers({
   decadeBTNClicked: decadeBtnClickedReducer,
   openMenu: sideMenuReducer,
   watchedMovies,
-  currentWatchedMovie
+  currentWatchedMovie,
+  wishedMovies,
+  currentWishedMovie
 
 });
 

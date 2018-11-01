@@ -1,7 +1,4 @@
-import {
-    OPEN_MENU,
-    CLOSE_MENU
-} from './movieConstants'
+import { OPEN_MENU, CLOSE_MENU } from './movieConstants'
 
 
 

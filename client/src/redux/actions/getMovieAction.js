@@ -1,5 +1,4 @@
 import { GET_RANDOM_MOVIE } from "./movieConstants";
-// import axios from "axios";
 import { addError, removeError } from "./errorAction";
 import api from "../../services/api";
 

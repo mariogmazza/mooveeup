@@ -41,7 +41,7 @@ exports.saveWatchedBy = async (req, res, next) => {
             "title": title
         })
 
-        console.log('pepe')
+        // console.log('pepe')
         // console.log( (typeof movieExist[0]) );  
 
 
@@ -67,11 +67,22 @@ exports.saveWatchedBy = async (req, res, next) => {
             });
         }
 
-        console.log("I exist on the database")
-        user.watchedBy.push(movieExist[0]._id);
+        console.log("I exist on the database watched");
+
+        // const userWatchedList = await user.find({'watchedBy': movieExist[0]._id})
+        // console.log('im the closest')
+        // console.log(userWatchedList)
+
+        // user.watchedBy.push(movieExist[0]._id);   
+
+        user.update(
+            { $addToSet: { watchedBy: movieExist[0]._id  } }
+         )
+
+
         await user.save();
 
-        //maybe here i need to do this=> 
+
 
         return res.status(201).json({ ...movieExist[0]._doc,
             user: user._id
@@ -109,23 +120,13 @@ exports.getMovieWatched = async (req, res, next) => {
 
 exports.deleteFromWatched = async (req, res, next) => {
 
-    const {
-        id: movieId
-    } = req.params;
+    const { id: movieId } = req.params;
 
-    const {
-        id: userId
-    } = req.token;
+    const { id: userId } = req.token;
 
     try {
 
-        const user = await db.User.update({
-            _id: userId
-        }, {
-            $pull: {
-                'watchedBy': movieId
-            }
-        });
+        const user = await db.User.update({ _id: userId }, { $pull: { 'watchedBy': movieId } });
 
         if (!user) throw new Error('No User found');
 

@@ -43,7 +43,7 @@ exports.saveWishedListed = async (req, res, next) => {
             "title": title
         })
 
-        if (typeof movieExist[0]._id === "undefined") {
+        if (typeof movieExist[0] === "undefined") {
             console.log("i dont exist in the database")
 
             const movie = await db.Movie.create({
@@ -64,8 +64,17 @@ exports.saveWishedListed = async (req, res, next) => {
             });
         }
 
-        console.log("I exist on the database")
-        user.wishedListedBy.push(movieExist[0]._id);
+        console.log("I exist on the database wishedlist")
+        // console.log(movieExist[0]._id);
+        // const userWatchedList = await user.find({'wishedListedBy': [movieExist[0]._id]})
+        // console.log(userWatchedList); 
+
+        // user.wishedListedBy.push(movieExist[0]._id);
+
+        user.update(
+            { $addToSet: { wishedListedBy: movieExist[0]._id  } } 
+         )
+
         await user.save();
 
         return res.status(201).json({ ...movieExist[0]._doc,

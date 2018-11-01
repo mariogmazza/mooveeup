@@ -7,11 +7,7 @@ import { Link } from "react-router-dom";
 import { changeMovie } from "../../redux/actions/getMovieAction";
 import { movieGenre, movieGenreName } from "../../redux/actions/genreAction";
 import { changePageDecade } from "../../redux/actions/selectBtnAction";
-import {
-  movieDecadeObject,
-  movieDecadeString
-} from "../../redux/actions/decadeAction";
-
+import { movieDecadeObject, movieDecadeString } from "../../redux/actions/decadeAction";
 import { logout } from "../../redux/actions/authAction";
 
 const mapState = state => ({
@@ -46,7 +42,6 @@ class SlidePanelMenu extends Component {
     console.log("HOME BUTTON");
 
     this.props.closeSideMenu(false);
-
     this.props.changeMovie("");
     this.props.movieGenre("");
     this.props.movieGenreName("");

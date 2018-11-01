@@ -11,11 +11,14 @@ import { changeMovie } from "../../../redux/actions/getMovieAction";
 import { movieGenre, movieGenreName } from "../../../redux/actions/genreAction";
 import { changePageDecade } from "../../../redux/actions/selectBtnAction";
 import { movieDecadeObject, movieDecadeString } from "../../../redux/actions/decadeAction";
+import { saveWatched } from '../../../redux/actions/watchedMovieAction'
+import { saveWished } from '../../../redux/actions/wishedMovieAction'
 import { openSideMenu } from "../../../redux/actions/sideMenuAction";
 import SlidePanelMenu from '../../../components/MobileNavBar/SlidePanelMenu'
 
-const mapState = state => ({
-  isOpen: state.openMenu.data 
+const mapState = state => ({ 
+  isOpen: state.openMenu.data, 
+  currMovie: state.moviePicked.data
 });
 
 const actions = {
@@ -25,7 +28,9 @@ const actions = {
   changePageDecade,
   movieDecadeObject,
   movieDecadeString,
-  openSideMenu
+  openSideMenu,
+  saveWatched,
+  saveWished
 };
 
 class SideMenu extends Component {
@@ -47,6 +52,14 @@ class SideMenu extends Component {
     this.props.openSideMenu(true);
   };
 
+  handleSaveWatched=()=>{
+    this.props.saveWatched(this.props.currMovie)
+  }
+
+  handleSaveWished=()=>{
+    this.props.saveWished(this.props.currMovie)
+  } 
+
   render() {
     console.log(this.state.toGenrePage);
     if (this.state.toGenrePage === true) {
@@ -60,9 +73,17 @@ class SideMenu extends Component {
             src={menuIcon}
             alt="menu Icon"
           />
-          <WatchedIcon src={eyeIcon}/>
+          <WatchedIcon 
+          onClick={this.handleSaveWatched}
+          src={eyeIcon}
+          alt='watched'
+          />
  
-          <SaveHeart src={heartIcon} alt="save button" />
+          <SaveHeart 
+          onClick={this.handleSaveWished}
+          src={heartIcon} 
+          alt="save button" 
+          />
           <BackBTN
             onClick={this.handleBackBTN}
             src={backBtnIcon}
