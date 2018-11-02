@@ -14,7 +14,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from "./app/App";
 import { Provider } from "react-redux";
 
-require('dotenv').config();
+// require('dotenv').config();
 
 
 
