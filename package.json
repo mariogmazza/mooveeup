@@ -35,5 +35,10 @@
     "node",
     "express",
     "create-react-app"
-  ]
+  ],
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
 }

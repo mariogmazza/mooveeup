@@ -10,6 +10,29 @@ const handle = require('./handlers');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
+const app = express();
+const port = process.env.PORT || 4000;
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/api/auth', routes.auth);
+app.use('/api/watched', routes.movieWatched);
+app.use('/api/wished', routes.movieWishlist);
+app.use('/api/getmovie', routes.getMovieRoute);
+
+
+
+
+app.use(handle.notFound)
+app.use(handle.errors)
+
+
+
+
+
 
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
@@ -29,24 +52,10 @@ mongoose.connect(process.env.DATABASE,{useNewUrlParser: true})
 }
 
 
-const app = express();
-const port = process.env.PORT || 4000;
-
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-app.use('/api/auth', routes.auth);
-app.use('/api/watched', routes.movieWatched);
-app.use('/api/wished', routes.movieWishlist);
-app.use('/api/getmovie', routes.getMovieRoute);
 
 
 
 
-app.use(handle.notFound)
-app.use(handle.errors)
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
