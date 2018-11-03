@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 const ErrorMessage = ({ error }) => {
   let ans= ''
-  if(error.message.message){
+  if(typeof error.message.message !== 'undefined'){
     if(error.message.message === 'Object(...) is not a function' ){
       ans=''
     }else if(error.message.message.length >= 38){
