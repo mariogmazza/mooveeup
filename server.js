@@ -28,8 +28,8 @@ app.use('/api/getmovie', routes.getMovieRoute);
 
 
 
-app.use(handle.notFound)
-app.use(handle.errors)
+// app.use(handle.notFound)
+// app.use(handle.errors)
 
 
 
