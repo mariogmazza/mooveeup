@@ -12,10 +12,8 @@ const Authpage = ({ route, authType, isAuthenticated }) => {
     <div>
       {route ? (
         route === "watched" ? (
-          // <AllWatchedMovies />
           <SavedWatched />
         ) : (
-          // <AllWishlistMovies />
           <SavedWished />
         )
       ) : (
