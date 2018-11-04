@@ -1,21 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import registerServiceWorker from "./registerServiceWorker";
 import  store  from "./redux/store/configureStore";
 import * as decode from 'jwt-decode';
-
 import { setCurrentUser, setToken } from './redux/actions/authAction';
 import { addError } from './redux/actions/errorAction';
-
-
 import { BrowserRouter as Router } from 'react-router-dom';
-
 import App from "./app/App";
 import { Provider } from "react-redux";
-
-// require('dotenv').config();
-
 
 
 
@@ -44,4 +36,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
