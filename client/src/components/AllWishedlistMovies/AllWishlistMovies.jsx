@@ -65,7 +65,9 @@ class AllWishlistMovies extends Component {
       )); 
 
     }else{
-      return <h3>Sorry there's nothing here to see!</h3>
+      return (<p>Sorry you have not added
+        any movies to this list!
+      </p>)
      }
 
 
