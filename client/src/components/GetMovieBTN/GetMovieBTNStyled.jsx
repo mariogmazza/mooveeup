@@ -6,7 +6,6 @@ import styled from 'styled-components';
     grid-column: span 11;
     grid-row: 8 / 12; 
 
-    font-family: Segoe UI;
     font-size: 21px;
     font-weight: bold;
     width: 178px;

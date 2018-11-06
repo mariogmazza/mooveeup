@@ -4,7 +4,6 @@ const SelBTNstlye = styled.button`
   grid-column: span 12;
   grid-row: 10 /12;
 
-  font-family: Segoe UI;
   font-size: 21px;
   font-weight: bold;
   width: 178px;

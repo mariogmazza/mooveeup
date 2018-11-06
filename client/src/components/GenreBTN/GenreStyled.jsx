@@ -33,7 +33,6 @@ const secondChoice = keyframes`
 export const GenBtn1 = styled.button`
     grid-column: span 12;
 
-    font-family: Segoe UI;
     font-size: 21px;
     font-weight: bold;
     width: 178px;
@@ -52,7 +51,6 @@ export const GenBtn1 = styled.button`
 export const GenBtn2 = styled.button`
     grid-column: span 12;
 
-    font-family: Segoe UI;
     font-size: 21px;
     font-weight: bold;
     width: 178px;
