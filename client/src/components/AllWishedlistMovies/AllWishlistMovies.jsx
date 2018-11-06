@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import FlipCard from "../FlipCard/FlipCard";
-import {
-  getAllWished,
-  getCurrentWished,
-  deleteWished
-} from "../../redux/actions/wishedMovieAction";
+import { getAllWished, getCurrentWished, deleteWished } from "../../redux/actions/wishedMovieAction";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import NoCard from '../NoCard/NoCard';
+
+
 
 const mapState = state => ({
   auth: state.auth,
@@ -65,7 +64,7 @@ class AllWishlistMovies extends Component {
       )); 
 
     }else{
-      return <h3>Sorry there's nothing here to see!</h3>
+      return <NoCard header={'Sorry you have not saved anything yet!'} message={'Manage movies that you want to watch in the future!'}  />
      }
 
 

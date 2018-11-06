@@ -4,6 +4,8 @@ import { getAllWatched, getCurrentWatched, deleteWatched } from "../../redux/act
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import './AllWatchedMovies.css'
+import NoCard from '../NoCard/NoCard';
+
 
 
 
@@ -17,6 +19,8 @@ const actions = {
   getCurrentWatched,
   deleteWatched
 };
+
+
 
 class AllWatchedMovies extends Component {
   constructor(props) {
@@ -65,12 +69,12 @@ class AllWatchedMovies extends Component {
           overview={movie.overview}
         />
       )); 
-
+ 
     }else{
-      return <h3>Sorry there's nothing here to see!</h3>
+      return <NoCard header={'Sorry you have not saved anything yet!'} message={'Manage movies that you have already watched !'}  />
      }
-
-
+ 
+ 
     return (
       <React.Fragment>
         <ul className='Flip_List'>

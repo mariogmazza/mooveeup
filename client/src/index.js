@@ -9,8 +9,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from "./app/App";
 import { Provider } from "react-redux";
 
-
-
 if(localStorage.jwtToken){
   setToken(localStorage.jwtToken);
   try{
