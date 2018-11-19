@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import connect from "react-redux";
+import { connect } from "react-redux";
 import Radium, { StyleRoot } from "radium";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
@@ -16,7 +16,7 @@ import {
 import BurgerMenuImg from "../../assets/img/burgerMenu.png";
 import { openSideMenu } from "../../redux/actions/sideMenuAction";
 
-const mapState = (state = {
+const mapState = state => ({
   isOpen: state.openMenu.data
 });
 
