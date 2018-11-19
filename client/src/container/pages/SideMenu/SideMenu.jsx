@@ -90,7 +90,7 @@ class SideMenu extends Component {
         </SideNav>
 
         {this.props.isOpen ? (
-          <SlidePanelMenu />
+          <SlidePanelMenu customHeight={'70%'} />
         ) : null}
 
 
