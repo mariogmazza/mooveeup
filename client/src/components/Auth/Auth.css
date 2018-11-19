@@ -1,11 +1,3 @@
-/* body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(#e66465, #9198e5);
-    background-size: cover;
-    background-position: center;
-    font-family: 'Ubuntu';
-} */
 
 .xContainer2 {
     width: 340px;
@@ -44,14 +36,11 @@
 
 
 .appContainer {
-    /* width: 100%; */
     height: 100%;
     background-color: rgb(64, 72, 84);
     border: none;
 
 }
-
-
 
 
 .loginbox {

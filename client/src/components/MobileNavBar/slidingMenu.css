@@ -2,13 +2,11 @@
     width: 0;
     position: absolute;
     z-index: 1000;
-    /* height: 70%; might need this*/  
     background-color: rgba(23, 21, 21, 0.93);
     overflow-x: hidden;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5ss;
-
     padding-top: 60px;
 }
 

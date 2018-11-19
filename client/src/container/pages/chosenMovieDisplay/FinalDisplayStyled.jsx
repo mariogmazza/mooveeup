@@ -1,19 +1,5 @@
 import styled from "styled-components";
 
-// export const NewMovieBTN = styled.button`
-//   font-family: Segoe UI;
-//   font-size: 21px;
-//   font-weight: bold;
-//   width: 178px;
-//   height: 55px;
-//   background-color: #c64747;
-//   color: white;
-//   border: none;
-//   outline: none;
-//   border-radius: 26px;
-//   margin-left: 122px;
-//   margin-top: 50px;
-// `;
 
 export const BackDropImg = styled.div`
   grid-column-start: 2;
@@ -58,7 +44,6 @@ export const MovieDesCont = styled.div`
   width: 235px;
   height: 118px; 
   margin-left: 15px;
-  font-family: Segoe UI;
   font-size: 12px;
   overflow: scroll;
   color: #b6b6b7;
@@ -89,16 +74,13 @@ export const MovieYearCont = styled.div`
 `;
 
 export const ReleaseTitle = styled.span`
-  font-family: Segoe UI;
   font-size: 12px;
   font-weight: bold;
   color: #bcbcbc;
 `;
 
 export const YearRelease = styled.div`
-  font-family: Segoe UI;
   font-size: 40px;
   font-weight: bold;
   color: #6f6f6f;
-  /* margin-top: 8px; */
 `;

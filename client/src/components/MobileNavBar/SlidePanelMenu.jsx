@@ -3,7 +3,6 @@ import "./slidingMenu.css";
 import { connect } from "react-redux";
 import { closeSideMenu } from "../../redux/actions/sideMenuAction";
 import { Link } from "react-router-dom";
-
 import { changeMovie } from "../../redux/actions/getMovieAction";
 import { movieGenre, movieGenreName } from "../../redux/actions/genreAction";
 import { changePageDecade } from "../../redux/actions/selectBtnAction";
