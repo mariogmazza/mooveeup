@@ -130,7 +130,7 @@ class Navbar extends Component {
           </BurgerIcon>
         </TopNavLeft>
 
-        {this.props.isOpen ? <SlidePanelMenu /> : null}
+        {this.props.isOpen ? <SlidePanelMenu customHeight={'160%'} /> : null}
       </React.Fragment>
     );
   }

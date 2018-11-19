@@ -65,7 +65,7 @@ class SlidePanelMenu extends Component {
     return (
       <React.Fragment>
         {this.props.isOpen ? (
-          <div style={{ width: "80%" }} className="sidepanel">
+          <div style={{ width: "80%", height: this.props.customHeight }} className="sidepanel">
             <a className="closebtn" onClick={this.handleClose}>
               ×
             </a>

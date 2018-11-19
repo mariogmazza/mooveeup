@@ -43,7 +43,7 @@ class MobileNavBar extends Component {
 
 
         {this.props.isOpen ? (
-          <SlidePanelMenu />
+          <SlidePanelMenu  customHeight={'70%'}/>
         ) : null}
 
 
