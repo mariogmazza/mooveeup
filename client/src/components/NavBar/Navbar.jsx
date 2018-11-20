@@ -1,128 +1,142 @@
-import React from "react";
-// import Radium from "radium";
+import React, { Component } from "react";
+import connect from "react-redux";
 import Radium, { StyleRoot } from "radium";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import SlidePanelMenu from "../MobileNavBar/SlidePanelMenu";
 
 import {
   TopNavLeft,
   TopNavRight,
   NavA,
-  //   NavActiveR,
   BurgerIcon,
   IconImg
 } from "./NavbarStyled";
 
 import BurgerMenuImg from "../../assets/img/burgerMenu.png";
+import { openSideMenu } from "../../redux/actions/sideMenuAction";
 
+const mapState = (state = {
+  isOpen: state.openMenu.data
+});
 
+const actions = {
+  openSideMenu
+};
 
 const RadiatingLink = Radium(Link);
 
-function Navbar() {
-  return (
-    <React.Fragment>
-      <TopNavLeft>
-        <RadiatingLink
-          to="/"
-          style={{
-            background: "#c64747",
-            color: "#ddd",
-            float: "left",
-            display: "block",
-            textAlign: "center",
-            padding: "14px 16px",
-            textDecoration: "none",
-            fontSize: "17px",
-            ":hover": { background: "#ddd", color: "black" }
-          }}
-        >
-          XMOVIE
-        </RadiatingLink>
+class Navbar extends Component {
+  handleOpenMenu = () => {
+    this.props.openSideMenu(true);
+  };
 
-        <ScrollLink to="features" spy={true} smooth={true} duration={500}>
-          <NavA>Features</NavA>
-          {/* Features */}
-        </ScrollLink>
+  render() {
+    return (
+      <React.Fragment>
+        <TopNavLeft>
+          <RadiatingLink
+            to="/"
+            style={{
+              background: "#c64747",
+              color: "#ddd",
+              float: "left",
+              display: "block",
+              textAlign: "center",
+              padding: "14px 16px",
+              textDecoration: "none",
+              fontSize: "17px",
+              ":hover": { background: "#ddd", color: "black" }
+            }}
+          >
+            XMOVIE
+          </RadiatingLink>
 
-        <ScrollLink to="findus" spy={true} smooth={true} duration={500}>
-          <NavA>Find us</NavA>
-          {/* Find us */}
-        </ScrollLink>
+          <ScrollLink to="features" spy={true} smooth={true} duration={500}>
+            <NavA>Features</NavA>
+          </ScrollLink>
 
-        <RadiatingLink
-          to="/xmovieweb"
-          style={{
-            float: "left",
-            display: "block",
-            color: "#707070",
-            textAlign: "center",
-            padding: "14px 16px",
-            textDecoration: "none",
-            fontSize: "17px",
-            ":hover": {
-              backgroundColor: "#ddd",
-              color: "black"
-            }
-          }}
-        >
-          Try it now
-        </RadiatingLink>
+          <ScrollLink to="findus" spy={true} smooth={true} duration={500}>
+            <NavA>Find us</NavA>
+          </ScrollLink>
 
-        <TopNavRight>
+          <RadiatingLink
+            to="/xmovieweb"
+            style={{
+              float: "left",
+              display: "block",
+              color: "#707070",
+              textAlign: "center",
+              padding: "14px 16px",
+              textDecoration: "none",
+              fontSize: "17px",
+              ":hover": {
+                backgroundColor: "#ddd",
+                color: "black"
+              }
+            }}
+          >
+            Try it now
+          </RadiatingLink>
 
-          <StyleRoot>
-            <RadiatingLink
-              to="/register"
-              style={{
-                float: "left",
-                display: "block",
-                backgroundColor: "#c64747",
-                color: "#ddd",
-                textAlign: "center",
-                padding: "14px 16px",
-                textDecoration: "none",
-                fontSize: "17px",
-                ":hover": { backgroundColor: "#ddd", color: "black" },
-                "@media screen and (max-width: 600px)": {
-                  display: "none"
-                }
-              }}
-            >
-              Register
-            </RadiatingLink>
+          <TopNavRight>
+            <StyleRoot>
+              <RadiatingLink
+                to="/register"
+                style={{
+                  float: "left",
+                  display: "block",
+                  backgroundColor: "#c64747",
+                  color: "#ddd",
+                  textAlign: "center",
+                  padding: "14px 16px",
+                  textDecoration: "none",
+                  fontSize: "17px",
+                  ":hover": { backgroundColor: "#ddd", color: "black" },
+                  "@media screen and (max-width: 600px)": {
+                    display: "none"
+                  }
+                }}
+              >
+                Register
+              </RadiatingLink>
 
-            <RadiatingLink
-              to="/login"
-              style={{
-                float: "left",
-                display: "block",
-                color: "#707070",
-                textAlign: "center",
-                padding: "14px 16px",
-                textDecoration: "none",
-                fontSize: "17px",
-                ":hover": {
-                  backgroundColor: "#ddd",
-                  color: "black"
-                },
-                "@media screen and (max-width: 600px)": {
-                  display: "none"
-                }
-              }}
-            >
-              LogIn
-            </RadiatingLink>
-          </StyleRoot>
+              <RadiatingLink
+                to="/login"
+                style={{
+                  float: "left",
+                  display: "block",
+                  color: "#707070",
+                  textAlign: "center",
+                  padding: "14px 16px",
+                  textDecoration: "none",
+                  fontSize: "17px",
+                  ":hover": {
+                    backgroundColor: "#ddd",
+                    color: "black"
+                  },
+                  "@media screen and (max-width: 600px)": {
+                    display: "none"
+                  }
+                }}
+              >
+                LogIn
+              </RadiatingLink>
+            </StyleRoot>
+          </TopNavRight>
 
-        </TopNavRight>
+          <BurgerIcon onClick={this.handleOpenMenu}>
+            <IconImg src={BurgerMenuImg} />
+          </BurgerIcon>
+        </TopNavLeft>
 
-        <BurgerIcon>
-          <IconImg src={BurgerMenuImg} />
-        </BurgerIcon>
-      </TopNavLeft>
-    </React.Fragment>
-  );
+        {this.props.isOpen ? <SlidePanelMenu /> : null}
+      </React.Fragment>
+    );
+  }
 }
 
-export default Navbar;
+export default connect(
+  mapState,
+  actions
+)(Navbar);

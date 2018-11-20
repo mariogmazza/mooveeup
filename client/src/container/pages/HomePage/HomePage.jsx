@@ -62,18 +62,6 @@ const HomePage = () => {
             TRY IT NOW
           </RadiatingLink>
 
-          {/* <button className="hero_get_the_app_btn">
-            <Link
-              style={{
-                color: "white",
-                fontSize: "15px",
-                fontWeight: "bold"
-              }}
-              to="/xmovieweb"
-            >
-              TRY IT NOW
-            </Link>
-          </button> */}
           <p className="hero_info">* no registration required</p>
         </div>
 
